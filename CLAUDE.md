@@ -80,6 +80,8 @@ page before changing materials. No wood.
 - Wordmark: Rammetto One in navy under a printed mountain range with
   contour lines. The font in `ui/fonts` is subset to the letters of
   "Altitude"; labels are Jost.
+- Version: printed at the end of the bottom line
+  (`FOUR OCTAVES OF ELEVATION · V0.2.0`), from the root `Cargo.toml`.
 - Colours by function: green for floor switches, amber for the effect
   (footswitch LED and preset window).
 

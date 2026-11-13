@@ -528,6 +528,7 @@
     font-size: 7px;
     font-weight: 800;
     letter-spacing: 0.3em;
+    text-transform: uppercase;
     color: var(--ink-soft);
   }
 </style>
@@ -583,7 +584,7 @@
   <div class="stomp-zone">
     <span class="led on" id="led"></span>
     <div class="stomp-wrap"><button class="stomp" id="stomp" aria-label="Stomp" aria-pressed="true"></button></div>
-    <span class="fine print" aria-hidden="true">FOUR OCTAVES OF ELEVATION</span>
+    <span class="fine print"><span aria-hidden="true">FOUR OCTAVES OF ELEVATION · </span><span id="version"></span></span>
   </div>
 </main>
 
@@ -835,6 +836,7 @@
     switch (msg.type) {
       case "key": return forwardKey(msg);
       case "init":
+        document.getElementById("version").textContent = `v${msg.version}`;
         params.clear();
         msg.params.forEach((p) => params.set(p.id, { ...p, value: p.default, text: "" }));
         build();
@@ -857,6 +859,7 @@
   // Mirrors the plugin's parameters so the page can be worked on in a
   // browser. Keep it in step with params when they change.
   function mockBridge() {
+    const version = new URLSearchParams(location.search).get("version") ?? "0.0.0";
     const percent = (n) => `${Math.round(n * 100)}%`;
     const onOff = (n) => (n >= 0.5 ? "On" : "Off");
     const specs = [
@@ -884,7 +887,7 @@
     return (msg) => {
       switch (msg.type) {
         case "ready":
-          send({ type: "init", params: specs.map(({ text, ...rest }) => ({ options: [], ...rest })) });
+          send({ type: "init", version, params: specs.map(({ text, ...rest }) => ({ options: [], ...rest })) });
           sendValues(specs.map((s) => s.id));
           return;
         case "set":

@@ -112,7 +112,8 @@ work on it in a browser:
 cd ui && python3 -m http.server 8765    # open http://127.0.0.1:8765
 ```
 
-To load the page live in the plugin, set `ALTITUDE_UI_URL` to that URL
+Add `?version=1.2.0` to show a version other than `0.0.0`. To load
+the page live in the plugin, set `ALTITUDE_UI_URL` to that URL
 before starting the host.
 
 ## CI and releases

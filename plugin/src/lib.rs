@@ -12,6 +12,7 @@ static PAGE: editor::Page = editor::Page {
     title: "Altitude",
     size: (508, 708),
     html: include_str!("../../ui/index.html"),
+    version: env!("CARGO_PKG_VERSION"),
     background: (27, 26, 25, 255),
     dev_url_var: "ALTITUDE_UI_URL",
 };

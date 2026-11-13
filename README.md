@@ -1,6 +1,6 @@
 # Totem
 
-<img src="docs/totem.jpg" width="355" alt="Totem, a tiki-pop totem pole of five carved critters: a mustard owl and fox, a mint face called You, and a tomato bear and mole, each with a peg switch beside it, next to a mustard Totem badge, cream Shade, Wake and Sway knobs, and a red footswitch under a glowing lamp">
+<img src="docs/totem.jpg" width="305" alt="Totem, a red powder-coated stompbox with ivory Shade, Wake and Sway knobs, an amber preset window between chrome arrow buttons, five slide faders with carved cedar critter caps (Mole, Bear, You, Fox, Owl) under mint switch lights, a carved cedar Totem badge, and a chrome footswitch under an amber LED">
 
 Stacked octaves for guitar, bass, synths or anything else, as a VST3 and
 CLAP plugin for macOS and Windows. Five floors mix two octaves down, one
@@ -38,17 +38,24 @@ recorded parts, a little smeared on tight, fast riffs.
 | Shade | 0–100% | Low-pass on the octave floors, from about 400 Hz to 20 kHz |
 | Wake | 0–1000 ms | Fades the octave floors in after each pick attack, for swells. 0 is instant |
 | Sway | 0–25 cents | Detunes the octave floors against each other, for chorus or 12-string shimmer |
-| Pegs | On / Off | One per critter. Off mutes that floor but keeps its level |
+| Floor lights | On / Off | One above each fader. Off mutes that floor but keeps its level |
 | Stomp | On / Off | The footswitch. Off fades the octaves out and passes your signal at full level |
 
-Drag a critter or a knob up or down (hold Shift for fine moves), scroll,
-or use the arrow keys. Double-click to reset. A critter's mouth opens
-with its level, and it falls asleep when its peg or Stomp is off. Level
-and switch changes fade over about 20 ms, so they don't click.
+Drag a fader or a knob up or down (hold Shift for fine moves), scroll,
+or use the arrow keys. Double-click to reset. The critter carved on each
+fader cap opens its mouth with its level, and closes its eyes when its
+light or Stomp is off. Level and switch changes fade over about 20 ms,
+so they don't click.
 
-## Starting points
+## Presets
 
-| Sound | Owl | Fox | You | Bear | Mole | Shade | Wake | Sway |
+The ◀ ▶ buttons step through eight presets in the window above the
+faders. Loading one sets the faders and knobs, turns every floor on and
+leaves Stomp alone, and the host records it like any other control
+change. The window shows the preset's name while the controls match it,
+and Custom once you change something.
+
+| Preset | Owl | Fox | You | Bear | Mole | Shade | Wake | Sway |
 |---|---|---|---|---|---|---|---|---|
 | Bass under guitar | 0 | 0 | 100 | 60 | 0 | 40 | 0 | 0 |
 | Organ | 25 | 50 | 70 | 60 | 30 | 55 | 0 | 0 |
@@ -61,9 +68,9 @@ and switch changes fade over about 20 ms, so they don't click.
 
 ## Tips
 
-- Set the levels once, then use the pegs to bring floors in and out by
-  song section. Map each peg to a MIDI pad in your host for a five-button
-  octave pedal.
+- Set the levels once, then use the floor lights to bring floors in and
+  out by song section. Map each one to a MIDI pad in your host for a
+  five-button octave pedal.
 - Before an amp sim, the amp distorts the whole stack together into a
   fuzzy octave. After it, the stack sits cleanly on top like an organ.
 - Octaves down plus high gain gets muddy fast. Bring Shade down to
@@ -123,7 +130,8 @@ before starting the host.
 - [nice-plug](https://codeberg.org/RustAudio/nice-plug), pinned to
   [a fork](https://github.com/starzonmyarmz/nice-plug/tree/patina) that
   adds `ActivateContext::gui_context()`.
-- [Chango](https://fonts.google.com/specimen/Chango) by Fontstage, under the
-  SIL Open Font License (`ui/fonts`).
+- [Chango](https://fonts.google.com/specimen/Chango) by Fontstage and
+  [Jost](https://github.com/indestructible-type/Jost) by Owen Earl,
+  under the SIL Open Font License (`ui/fonts`).
 - Started from
   [plugin-template](https://github.com/starzonmyarmz/plugin-template).

@@ -30,7 +30,7 @@ build and run it. This file has the maintainer details it leaves out.
 
 ## Adding a parameter
 
-It has to go in five places:
+It has to go in six places:
 
 1. `Settings` in `engine.rs` and its `Default`, and `set()` if the
    engine needs it. If it's a front-panel-only control, `Controls`
@@ -38,9 +38,20 @@ It has to go in five places:
 2. `TotemParams` in `params.rs`, and its `raw_settings()` mapping.
 3. The mock's `specs` in `ui/index.html`. The plugin's bridge picks new
    parameters up automatically, but the browser mock doesn't.
-4. A `data-knob` (or `data-floor`, `data-stomp-switch`) element in the
-   markup.
-5. The controls table in `README.md`.
+4. A `data-knob` (or `data-floor`) element in the markup.
+5. `PRESETS` and `FULL_SCALE` in `ui/index.html`, if presets should set it.
+6. The controls table in `README.md`, and the presets table if it's in
+   them.
+
+## Presets
+
+The eight presets live in `PRESETS` in `ui/index.html`, in plain units,
+not in Rust: nice-plug has no factory presets. Loading one sends a
+begin/set/end gesture per parameter, so hosts record and undo it like
+hand moves, and it works only while the editor is open. The window
+works out which preset is showing from the current values (within 0.2%
+of each control's range, with every floor on), so nothing extra is
+saved with a project. Keep the README's presets table in step.
 
 ## Sound changes and golden renders
 
@@ -52,33 +63,36 @@ say in the commit what changed in the sound.
 
 ## Design
 
-Settled with the user; keep to it.
+Settled with the user; keep to it. The editor is a real stompbox, built
+the way Halfwit's is (powder coat with noise, chrome screws, knurled
+knobs with tick dots, chrome hex footswitch and LED). Look at Halfwit's
+page before changing materials.
 
-- Object: a tiki-pop carved totem pole, one critter per floor. Original
-  characters only, not Northwest Coast formline art (no ovoids or
-  U-forms).
-- Names: Owl (+2), Fox (+1), You (dry), Bear (−1), Mole (−2), sky down
-  to underground. Knobs Shade (tone), Wake (attack), Sway (detune), and
-  Stomp.
-- Palette: glossy tomato, mustard and mint on a teal night. Colour
-  follows function: up floors mustard, You mint, down floors tomato.
-  Knobs are all the same cream lacquer.
-- Art: a critter's mouth opens with its level (`--level` on `.floor`);
-  off closes its eyes and desaturates it. Stomp off does that to every
-  critter but You.
-- Font: Chango, letter-spacing −0.03em, for the wordmark and labels.
-  The subset in `ui/fonts` has capitals only (labels are uppercased), so
-  new label text needs those letters, or a new subset from Google Fonts'
-  css2 API with `&text=`.
+- Enclosure: tomato-red powder coat, cream silkscreen in Jost.
+- Knobs: ivory knurled, ink pointer. Shade (tone), Wake (attack), Sway
+  (detune) across the top.
+- Presets: an amber backlit window between chrome ◀ ▶ buttons.
+- Floors: five slide faders in a recessed black bay, low to high: Mole
+  (−2), Bear (−1), You (dry), Fox (+1), Owl (+2). Each has a mint switch
+  light above it. The fader caps are carved cedar with that critter's
+  face, which carries the totem theme. Original characters only, not
+  Northwest Coast formline art.
+- Art: a cap's carved mouth opens with its level (`--open` on
+  `.fader`); off closes its eyes. Stomp off dims every floor light but
+  You's and closes the octave critters' eyes.
+- Badge: a carved cedar plate with two brass screws, the wordmark in
+  Chango at letter-spacing −0.03em. Chango in `ui/fonts` is subset to
+  capitals; Jost is the full latin subset.
+- Colours by function: mint for floor switches, amber for the effect
+  (footswitch LED and preset window).
 
 ## UI
 
 - The window size is set in two places that must change together:
-  `PAGE.size` in `lib.rs`, and `.scene`'s `inline-size` and `block-size`
-  in `ui/index.html`.
-- Each floor is an inline SVG, so page CSS reaches its parts. The open
-  and shut eyes are `.open` and `.shut` groups; `.mouth` scales with
-  `--open`.
+  `PAGE.size` in `lib.rs`, and `.pedal`'s `inline-size` and `block-size`
+  in `ui/index.html` (the window leaves 24 px around the pedal).
+- A fader's drag distance is its `--travel`, so the cap follows the
+  pointer. Knobs take 200 px for the full range.
 - The local preview server (`python3 -m http.server`) gets cached by the
   browser. Add a query string like `?v=2` after each edit.
 - After a visible UI change, retake `docs/totem.jpg` with the

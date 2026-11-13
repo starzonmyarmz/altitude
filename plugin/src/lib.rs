@@ -10,7 +10,7 @@ use std::sync::Arc;
 
 static PAGE: editor::Page = editor::Page {
     title: "Totem",
-    size: (760, 340),
+    size: (600, 720),
     html: include_str!("../../ui/index.html"),
     background: (27, 26, 25, 255),
     dev_url_var: "TOTEM_UI_URL",

@@ -4,13 +4,24 @@
 <meta charset="utf-8">
 <title>Totem</title>
 <style>
+  @font-face {
+    font-family: "Chango";
+    src: url(data:font/woff2;base64,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) format("woff2");
+  }
+
   :root {
-    --bg: #1b1a19;
-    --panel: #262523;
-    --ink: #f2efe8;
-    --muted: #8f8b83;
-    --accent: #ff7a3d;
-    --track: #3a3835;
+    --night: #0f3b3e;
+    --night-deep: #082628;
+    --ink: #2a160e;
+    --cream: #fff3dc;
+    --tomato: #e2483b;
+    --tomato-deep: #8f2219;
+    --mustard: #f2c230;
+    --mustard-deep: #a8700f;
+    --mint: #6fd3b0;
+    --mint-deep: #2f8a6c;
+    --wood: #5a3420;
+    --wood-deep: #2e170b;
   }
 
   * { box-sizing: border-box; }
@@ -27,8 +38,8 @@
   body {
     display: grid;
     place-items: center;
-    background: var(--bg);
-    color: var(--ink);
+    background: var(--night-deep);
+    color: var(--cream);
     font-family: -apple-system, "Segoe UI", sans-serif;
   }
 
@@ -41,57 +52,243 @@
   }
 
   :focus-visible {
-    outline: 2px solid var(--accent);
-    outline-offset: 4px;
+    outline: 3px solid var(--cream);
+    outline-offset: 3px;
   }
 
-  main {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 28px;
-    padding: 28px;
-    border-radius: 16px;
-    background: var(--panel);
-  }
-
-  .control {
+  .scene {
+    position: relative;
     display: grid;
-    justify-items: center;
-    gap: 8px;
-    inline-size: 72px;
+    grid-template-columns: 300px 1fr;
+    inline-size: 600px;
+    block-size: 720px;
+    padding: 24px 20px 20px;
+    background:
+      radial-gradient(circle at 50% 0%, #1d5a5c, transparent 70%),
+      repeating-linear-gradient(90deg, transparent 0 46px, #0000001a 46px 48px),
+      var(--night);
   }
 
-  .name {
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 0.08em;
+  .label {
+    font-family: "Chango", sans-serif;
+    font-size: 13px;
+    letter-spacing: 0.02em;
     text-transform: uppercase;
-    color: var(--muted);
+    color: var(--cream);
+    text-shadow: 0 2px 0 var(--ink);
   }
 
-  .text {
+  .readout {
+    position: absolute;
+    z-index: 2;
+    padding: 3px 7px;
+    border-radius: 6px;
+    background: var(--ink);
+    color: var(--cream);
     font-size: 12px;
     font-variant-numeric: tabular-nums;
     white-space: nowrap;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 120ms;
+  }
+
+  :is(.floor, .control):is(:hover, .active, :focus-within) .readout { opacity: 1; }
+
+  /* ---------- the pole ---------- */
+
+  .pole {
+    position: relative;
+    display: grid;
+    align-content: start;
+    justify-items: center;
+
+    &::before {
+      content: "";
+      position: absolute;
+      inset-block: 20px 0;
+      inset-inline: 112px;
+      border-radius: 8px;
+      background: linear-gradient(90deg, var(--wood) 0 60%, var(--wood-deep));
+    }
+  }
+
+  .floor {
+    --level: 0;
+    --open: calc(0.14 + var(--level) * 0.86);
+    position: relative;
+    display: grid;
+    grid-template-columns: 210px 70px;
+    align-items: center;
+    block-size: 124px;
+
+    & .face {
+      display: block;
+      inline-size: 210px;
+      block-size: 124px;
+      overflow: visible;
+      rotate: var(--tilt);
+      touch-action: none;
+      cursor: ns-resize;
+      outline: 0;
+    }
+
+    & .face:focus-visible .block { stroke: var(--cream); }
+
+    & .tag {
+      display: grid;
+      justify-items: center;
+      gap: 6px;
+    }
+
+    & .readout {
+      inset-inline-start: 50%;
+      inset-block-start: 4px;
+      translate: -50% 0;
+    }
+  }
+
+  .face {
+    & .shadow { fill: var(--ink); }
+    & .block { stroke: var(--ink); stroke-width: 5; }
+    & .line { fill: none; stroke: var(--ink); stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    & .ink { fill: var(--ink); }
+    & .cream { fill: var(--cream); stroke: var(--ink); stroke-width: 4; }
+    & .accent { stroke: var(--ink); stroke-width: 4; }
+
+    & .mouth {
+      transform-box: fill-box;
+      transform-origin: center;
+      scale: 1 var(--open);
+      transition: scale 90ms;
+    }
+
+    & .shut { display: none; }
+  }
+
+  [data-family="up"] .face { & .block { fill: var(--mustard); } & .accent { fill: var(--tomato); } }
+  [data-family="dry"] .face { & .block { fill: var(--mint); } & .accent { fill: var(--mustard); } }
+  [data-family="down"] .face { & .block { fill: var(--tomato); } & .accent { fill: var(--mustard); } }
+
+  .floor[data-on="false"], .scene[data-stomp="off"] .floor:not([data-floor="you"]) {
+    --open: 0.06;
+
+    & .face .open { display: none; }
+    & .face .shut { display: inline; }
+    & .face { filter: saturate(0.35) brightness(0.8); }
+  }
+
+  .peg {
+    position: relative;
+    inline-size: 30px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    border: 3px solid var(--ink);
+    background: radial-gradient(circle at 35% 30%, #fff8, transparent 45%), var(--wood);
+    box-shadow: 0 4px 0 var(--ink);
+    cursor: pointer;
+    transition: translate 60ms, box-shadow 60ms, background-color 120ms;
+
+    &[aria-pressed="true"] {
+      background-color: var(--cream);
+      background: radial-gradient(circle at 35% 30%, #fff, transparent 45%), var(--cream);
+    }
+
+    &:active {
+      translate: 0 3px;
+      box-shadow: 0 1px 0 var(--ink);
+    }
+  }
+
+  .base {
+    position: relative;
+    inline-size: 150px;
+    block-size: 26px;
+    margin-inline-end: 70px;
+    border: 4px solid var(--ink);
+    border-radius: 10px 10px 4px 4px;
+    background: linear-gradient(var(--wood), var(--wood-deep));
+  }
+
+  /* ---------- the board ---------- */
+
+  .board {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    justify-items: center;
+    padding-block-start: 6px;
+  }
+
+  .badge {
+    display: grid;
+    place-items: center;
+    inline-size: 230px;
+    block-size: 92px;
+    border-radius: 22px;
+    rotate: -2deg;
+    background: linear-gradient(var(--mustard), #d99a1c);
+    box-shadow: inset 0 3px 0 #ffe28a, inset 0 -6px 0 var(--mustard-deep), 0 8px 0 #5a3a14, 0 14px 20px #0008;
+
+    & span {
+      font-family: "Chango", sans-serif;
+      font-size: 42px;
+      letter-spacing: -0.03em;
+      line-height: 1;
+      padding-block-start: 0.08em;
+      color: var(--tomato);
+      text-shadow: 0 3px 0 var(--tomato-deep), 0 -1px 0 #ff9b8a;
+      -webkit-text-stroke: 2px #3a1d12;
+      paint-order: stroke fill;
+    }
+  }
+
+  .knobs {
+    display: grid;
+    align-content: center;
+    justify-items: center;
+    gap: 22px;
+  }
+
+  .control {
+    position: relative;
+    display: grid;
+    justify-items: center;
+    gap: 8px;
+
+    & .readout {
+      inset-inline-start: calc(100% + 10px);
+      inset-block-start: 26px;
+    }
   }
 
   .knob {
-    --arc: calc(var(--turn) * 270deg);
+    --size: 74px;
     position: relative;
-    inline-size: 56px;
+    inline-size: var(--size);
     aspect-ratio: 1;
-    border-radius: 50%;
     touch-action: none;
     cursor: ns-resize;
-    background: conic-gradient(from -135deg, var(--accent) 0 var(--arc), var(--track) var(--arc) 270deg, transparent 270deg);
-    mask: radial-gradient(circle, transparent 55%, #000 56%);
-  }
+    outline: 0;
 
-  .dial {
-    position: relative;
-    inline-size: 56px;
-    aspect-ratio: 1;
+    &:focus-visible .cap { outline: 3px solid var(--cream); outline-offset: 4px; }
+
+    & .skirt {
+      position: absolute;
+      inset: 0;
+      border-radius: 50%;
+      background: var(--ink);
+      translate: 0 5px;
+    }
+
+    & .cap {
+      position: absolute;
+      inset: 0;
+      border-radius: 50%;
+      border: 4px solid var(--ink);
+      background:
+        radial-gradient(circle at 35% 30%, #fff9, transparent 40%),
+        repeating-conic-gradient(var(--cream) 0 12deg, #f1e1c2 12deg 24deg);
+    }
 
     & .pointer {
       position: absolute;
@@ -102,52 +299,193 @@
       &::before {
         content: "";
         position: absolute;
-        inset-inline-start: calc(50% - 1px);
-        inset-block-start: 16%;
-        inline-size: 2px;
-        block-size: 26%;
-        border-radius: 1px;
-        background: var(--ink);
+        inset-inline-start: calc(50% - 5px);
+        inset-block-start: 7px;
+        inline-size: 10px;
+        block-size: 24px;
+        border-radius: 5px;
+        border: 3px solid var(--ink);
+        background: var(--tomato);
       }
     }
   }
 
-  .switch {
-    inline-size: 44px;
-    block-size: 24px;
-    border-radius: 12px;
-    background: var(--track);
-    position: relative;
+  .stomp-box {
+    display: grid;
+    justify-items: center;
+    gap: 8px;
+  }
+
+  .lamp {
+    inline-size: 22px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    border: 3px solid var(--ink);
+    background: #5a4a2a;
+    transition: background 160ms, box-shadow 160ms;
+  }
+
+  .stomp {
+    inline-size: 84px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    border: 5px solid var(--ink);
+    background: radial-gradient(circle at 35% 30%, #ff9b8a, transparent 45%), var(--tomato);
+    box-shadow: 0 8px 0 var(--ink);
     cursor: pointer;
-    transition: background 120ms;
+    transition: translate 60ms, box-shadow 60ms;
 
-    &::after {
-      content: "";
-      position: absolute;
-      inset-block: 3px;
-      inset-inline-start: 3px;
-      inline-size: 18px;
-      border-radius: 50%;
-      background: var(--ink);
-      transition: translate 120ms;
+    &:active {
+      translate: 0 5px;
+      box-shadow: 0 3px 0 var(--ink);
     }
+  }
 
-    &[aria-checked="true"] {
-      background: var(--accent);
-
-      &::after { translate: 20px 0; }
-    }
+  .scene[data-stomp="on"] .lamp {
+    background: var(--mustard);
+    box-shadow: 0 0 6px 2px #f2c230cc, 0 0 22px 6px #f2c23066;
   }
 </style>
 </head>
 <body>
-<main id="controls"></main>
+<main class="scene" data-stomp="on">
+  <div class="pole">
+    <div class="floor" data-floor="owl" data-family="up" style="--tilt: -1.5deg">
+      <svg class="face" viewBox="0 -16 210 140">
+        <path class="shadow" d="M30 -10 L52 22 L22 24 Z M180 -10 L158 22 L188 24 Z" transform="translate(4 4)"/>
+        <path class="accent" d="M30 -10 L52 22 L22 24 Z M180 -10 L158 22 L188 24 Z"/>
+        <rect class="shadow" x="14" y="12" width="182" height="104" rx="20" transform="translate(5 5)"/>
+        <rect class="block" x="14" y="12" width="182" height="104" rx="20"/>
+        <g class="open">
+          <circle class="cream" cx="70" cy="52" r="26"/>
+          <circle class="cream" cx="141" cy="50" r="24"/>
+          <circle class="ink" cx="74" cy="54" r="11"/>
+          <circle class="ink" cx="137" cy="52" r="10"/>
+        </g>
+        <g class="shut">
+          <path class="line" d="M46 54 Q70 66 94 54 M118 52 Q141 64 164 52"/>
+        </g>
+        <path class="accent" d="M96 60 L114 60 L105 80 Z"/>
+        <ellipse class="mouth ink" cx="105" cy="96" rx="22" ry="14"/>
+      </svg>
+      <div class="tag"><button class="peg"></button><span class="label"></span></div>
+      <span class="readout"></span>
+    </div>
+
+    <div class="floor" data-floor="fox" data-family="up" style="--tilt: 1deg">
+      <svg class="face" viewBox="0 -16 210 140">
+        <path class="shadow" d="M24 30 L44 -12 L76 16 Z M186 30 L166 -12 L134 16 Z" transform="translate(4 4)"/>
+        <path class="accent" d="M24 30 L44 -12 L76 16 Z M186 30 L166 -12 L134 16 Z"/>
+        <rect class="shadow" x="14" y="12" width="182" height="104" rx="26" transform="translate(5 5)"/>
+        <rect class="block" x="14" y="12" width="182" height="104" rx="26"/>
+        <path class="cream" d="M58 70 Q105 46 152 70 Q140 112 105 112 Q70 112 58 70 Z"/>
+        <g class="open">
+          <ellipse class="ink" cx="66" cy="46" rx="15" ry="9" transform="rotate(12 66 46)"/>
+          <ellipse class="ink" cx="144" cy="46" rx="14" ry="8" transform="rotate(-10 144 46)"/>
+        </g>
+        <g class="shut">
+          <path class="line" d="M52 44 Q66 52 80 46 M130 46 Q144 52 158 44"/>
+        </g>
+        <ellipse class="ink" cx="105" cy="68" rx="10" ry="7"/>
+        <ellipse class="mouth ink" cx="105" cy="95" rx="25" ry="13"/>
+      </svg>
+      <div class="tag"><button class="peg"></button><span class="label"></span></div>
+      <span class="readout"></span>
+    </div>
+
+    <div class="floor" data-floor="you" data-family="dry" style="--tilt: -0.5deg">
+      <svg class="face" viewBox="0 -16 210 140">
+        <rect class="shadow" x="10" y="6" width="190" height="112" rx="16" transform="translate(5 5)"/>
+        <rect class="block" x="10" y="6" width="190" height="112" rx="16"/>
+        <path class="accent" d="M32 30 Q105 14 178 30 L174 42 Q105 28 36 42 Z"/>
+        <g class="open">
+          <rect class="cream" x="44" y="44" width="40" height="22" rx="8"/>
+          <rect class="cream" x="126" y="45" width="40" height="22" rx="8"/>
+          <rect class="ink" x="58" y="48" width="13" height="15" rx="4"/>
+          <rect class="ink" x="139" y="49" width="13" height="15" rx="4"/>
+        </g>
+        <g class="shut">
+          <path class="line" d="M44 56 L84 56 M126 57 L166 57"/>
+        </g>
+        <path class="line" d="M105 56 L96 78 L112 78"/>
+        <g class="mouth">
+          <rect class="ink" x="50" y="84" width="110" height="26" rx="13"/>
+          <path d="M66 97 L144 97" stroke="var(--cream)" stroke-width="4" stroke-dasharray="10 6"/>
+        </g>
+      </svg>
+      <div class="tag"><button class="peg"></button><span class="label"></span></div>
+      <span class="readout"></span>
+    </div>
+
+    <div class="floor" data-floor="bear" data-family="down" style="--tilt: 1.5deg">
+      <svg class="face" viewBox="0 -16 210 140">
+        <circle class="shadow" cx="38" cy="16" r="20" transform="translate(4 4)"/>
+        <circle class="shadow" cx="172" cy="16" r="20" transform="translate(4 4)"/>
+        <circle class="accent" cx="38" cy="16" r="20"/>
+        <circle class="accent" cx="172" cy="16" r="20"/>
+        <rect class="shadow" x="14" y="12" width="182" height="104" rx="30" transform="translate(5 5)"/>
+        <rect class="block" x="14" y="12" width="182" height="104" rx="30"/>
+        <ellipse class="cream" cx="105" cy="82" rx="50" ry="30"/>
+        <g class="open">
+          <circle class="ink" cx="66" cy="46" r="8"/>
+          <circle class="ink" cx="146" cy="44" r="9"/>
+        </g>
+        <g class="shut">
+          <path class="line" d="M56 46 Q66 52 76 46 M136 45 Q146 51 156 45"/>
+        </g>
+        <path class="ink" d="M90 62 Q105 56 120 62 Q114 76 105 76 Q96 76 90 62 Z"/>
+        <ellipse class="mouth ink" cx="105" cy="97" rx="24" ry="14"/>
+      </svg>
+      <div class="tag"><button class="peg"></button><span class="label"></span></div>
+      <span class="readout"></span>
+    </div>
+
+    <div class="floor" data-floor="mole" data-family="down" style="--tilt: -1deg">
+      <svg class="face" viewBox="0 -16 210 140">
+        <rect class="shadow" x="14" y="8" width="182" height="108" rx="40" transform="translate(5 5)"/>
+        <rect class="block" x="14" y="8" width="182" height="108" rx="40"/>
+        <g class="open">
+          <circle class="ink" cx="76" cy="44" r="5"/>
+          <circle class="ink" cx="134" cy="43" r="5"/>
+        </g>
+        <g class="shut">
+          <path class="line" d="M68 44 L84 44 M126 43 L142 43"/>
+        </g>
+        <circle class="accent" cx="105" cy="64" r="16"/>
+        <ellipse class="mouth ink" cx="105" cy="97" rx="20" ry="11"/>
+        <g class="cream">
+          <ellipse cx="22" cy="92" rx="7" ry="13" transform="rotate(-20 22 92)"/>
+          <ellipse cx="34" cy="100" rx="7" ry="13" transform="rotate(-5 34 100)"/>
+          <ellipse cx="46" cy="104" rx="7" ry="12" transform="rotate(10 46 104)"/>
+          <ellipse cx="188" cy="92" rx="7" ry="13" transform="rotate(20 188 92)"/>
+          <ellipse cx="176" cy="100" rx="7" ry="13" transform="rotate(5 176 100)"/>
+          <ellipse cx="164" cy="104" rx="7" ry="12" transform="rotate(-10 164 104)"/>
+        </g>
+      </svg>
+      <div class="tag"><button class="peg"></button><span class="label"></span></div>
+      <span class="readout"></span>
+    </div>
+
+    <div class="base"></div>
+  </div>
+
+  <div class="board">
+    <div class="badge"><span>TOTEM</span></div>
+    <div class="knobs">
+      <div class="control" data-knob="shade"></div>
+      <div class="control" data-knob="wake"></div>
+      <div class="control" data-knob="sway"></div>
+    </div>
+    <div class="stomp-box" data-stomp-switch="stomp"></div>
+  </div>
+</main>
 
 <script>
 (() => {
   const params = new Map();
   const views = new Map();
   const dragging = new Set();
+  const scene = document.querySelector(".scene");
 
   const bridge = window.ipc
     ? (msg) => window.ipc.postMessage(JSON.stringify(msg))
@@ -169,114 +507,142 @@
 
   // ---------- controls ----------
 
-  function control(p, widget) {
-    const el = document.createElement("div");
-    el.className = "control";
-    const name = document.createElement("span");
-    name.className = "name";
-    name.textContent = p.name;
-    const text = document.createElement("span");
-    text.className = "text";
-    el.append(name, widget, text);
-    return { el, text };
-  }
-
-  function buildKnob(p) {
+  // Drag up or down (Shift for fine moves), scroll, arrow keys, and
+  // double-click to reset.
+  function slider(el, host, p) {
     const id = p.id;
-    const dial = document.createElement("div");
-    dial.className = "dial";
-    const knob = document.createElement("div");
-    knob.className = "knob";
-    knob.tabIndex = 0;
-    knob.setAttribute("role", "slider");
-    knob.setAttribute("aria-label", p.name);
-    knob.setAttribute("aria-valuemin", "0");
-    knob.setAttribute("aria-valuemax", "1");
-    const pointer = document.createElement("div");
-    pointer.className = "pointer";
-    dial.append(knob, pointer);
-    const { el, text } = control(p, dial);
+    el.tabIndex = 0;
+    el.setAttribute("role", "slider");
+    el.setAttribute("aria-label", p.name);
+    el.setAttribute("aria-valuemin", "0");
+    el.setAttribute("aria-valuemax", "1");
 
-    views.set(id, (p) => {
-      dial.style.setProperty("--turn", p.value.toFixed(4));
-      knob.setAttribute("aria-valuenow", p.value.toFixed(4));
-      knob.setAttribute("aria-valuetext", p.text);
-      text.textContent = p.text;
-    });
-
-    const stepped = p.steps > 0;
-    const snap = (v) => stepped ? Math.round(v * p.steps) / p.steps : v;
-    const stepSize = stepped ? 1 / p.steps : 0.01;
-
-    knob.addEventListener("pointerdown", (e) => {
+    el.addEventListener("pointerdown", (e) => {
       if (e.button !== 0) return;
-      knob.setPointerCapture(e.pointerId);
-      knob.focus();
+      el.setPointerCapture(e.pointerId);
+      el.focus();
       dragging.add(id);
+      host.classList.add("active");
       bridge({ type: "begin", id });
-      let raw = p.value;
       let lastY = e.clientY;
       const move = (ev) => {
         const fine = ev.shiftKey ? 0.15 : 1;
-        raw = Math.min(1, Math.max(0, raw + ((lastY - ev.clientY) / 200) * fine));
+        setParam(id, p.value + ((lastY - ev.clientY) / 200) * fine);
         lastY = ev.clientY;
-        const next = snap(raw);
-        if (next !== p.value) setParam(id, next);
       };
       const up = () => {
-        knob.removeEventListener("pointermove", move);
-        knob.removeEventListener("pointerup", up);
-        knob.removeEventListener("pointercancel", up);
+        el.removeEventListener("pointermove", move);
+        el.removeEventListener("pointerup", up);
+        el.removeEventListener("pointercancel", up);
         dragging.delete(id);
+        host.classList.remove("active");
         bridge({ type: "end", id });
       };
-      knob.addEventListener("pointermove", move);
-      knob.addEventListener("pointerup", up);
-      knob.addEventListener("pointercancel", up);
+      el.addEventListener("pointermove", move);
+      el.addEventListener("pointerup", up);
+      el.addEventListener("pointercancel", up);
     });
 
-    knob.addEventListener("dblclick", () => gesture(id, () => setParam(id, p.default)));
+    el.addEventListener("dblclick", () => gesture(id, () => setParam(id, p.default)));
 
-    knob.addEventListener("keydown", (e) => {
+    el.addEventListener("keydown", (e) => {
       const dir = { ArrowUp: 1, ArrowRight: 1, ArrowDown: -1, ArrowLeft: -1 }[e.key];
       if (dir === undefined) return;
       e.preventDefault();
       e.stopPropagation();
-      const amount = stepped ? stepSize : stepSize * (e.shiftKey ? 10 : 1);
-      gesture(id, () => setParam(id, snap(p.value + dir * amount)));
+      gesture(id, () => setParam(id, p.value + dir * (e.shiftKey ? 0.1 : 0.01)));
     });
 
-    knob.addEventListener("wheel", (e) => {
+    el.addEventListener("wheel", (e) => {
       e.preventDefault();
       const dir = Math.sign(-e.deltaY);
       if (!dir) return;
-      gesture(id, () => setParam(id, snap(p.value + dir * (stepped ? stepSize : stepSize / 2))));
+      gesture(id, () => setParam(id, p.value + dir * 0.005));
     }, { passive: false });
 
-    return el;
+    return (p) => {
+      el.setAttribute("aria-valuenow", p.value.toFixed(4));
+      el.setAttribute("aria-valuetext", p.text);
+    };
   }
 
-  function buildSwitch(p) {
-    const id = p.id;
-    const button = document.createElement("button");
-    button.className = "switch";
-    button.setAttribute("role", "switch");
-    button.setAttribute("aria-label", p.name);
-    const { el, text } = control(p, button);
-    views.set(id, (p) => {
-      button.setAttribute("aria-checked", String(p.value >= 0.5));
-      text.textContent = p.text;
+  function buildFloor(host) {
+    const level = params.get(host.dataset.floor);
+    const on = params.get(`${host.dataset.floor}_on`);
+    if (!level || !on) return;
+
+    const face = host.querySelector(".face");
+    const peg = host.querySelector(".peg");
+    const readout = host.querySelector(".readout");
+    host.querySelector(".label").textContent = level.name;
+    peg.setAttribute("aria-label", on.name);
+
+    const aria = slider(face, host, level);
+    views.set(level.id, (p) => {
+      aria(p);
+      host.style.setProperty("--level", p.value.toFixed(4));
+      readout.textContent = p.text;
     });
-    button.addEventListener("click", () => gesture(id, () => setParam(id, p.value >= 0.5 ? 0 : 1)));
-    return el;
+    views.set(on.id, (p) => {
+      const lit = p.value >= 0.5;
+      host.dataset.on = String(lit);
+      peg.setAttribute("aria-pressed", String(lit));
+    });
+    peg.addEventListener("click", () => gesture(on.id, () => setParam(on.id, on.value >= 0.5 ? 0 : 1)));
   }
 
-  // Two-step parameters (bools and two-option enums) become switches,
-  // everything else a knob. Replace this with a hand-laid page once the
-  // plugin's controls settle.
+  function buildKnob(host) {
+    const p = params.get(host.dataset.knob);
+    if (!p) return;
+
+    const knob = document.createElement("div");
+    knob.className = "knob";
+    for (const part of ["skirt", "cap", "pointer"]) {
+      const el = document.createElement("div");
+      el.className = part;
+      knob.append(el);
+    }
+    const label = document.createElement("span");
+    label.className = "label";
+    label.textContent = p.name;
+    const readout = document.createElement("span");
+    readout.className = "readout";
+    host.replaceChildren(knob, label, readout);
+
+    const aria = slider(knob, host, p);
+    views.set(p.id, (p) => {
+      aria(p);
+      knob.style.setProperty("--turn", p.value.toFixed(4));
+      readout.textContent = p.text;
+    });
+  }
+
+  function buildStomp(host) {
+    const p = params.get(host.dataset.stompSwitch);
+    if (!p) return;
+
+    const lamp = document.createElement("span");
+    lamp.className = "lamp";
+    const button = document.createElement("button");
+    button.className = "stomp";
+    button.setAttribute("aria-label", p.name);
+    const label = document.createElement("span");
+    label.className = "label";
+    label.textContent = p.name;
+    host.replaceChildren(lamp, button, label);
+
+    views.set(p.id, (p) => {
+      const lit = p.value >= 0.5;
+      button.setAttribute("aria-pressed", String(lit));
+      scene.dataset.stomp = lit ? "on" : "off";
+    });
+    button.addEventListener("click", () => gesture(p.id, () => setParam(p.id, p.value >= 0.5 ? 0 : 1)));
+  }
+
   function build() {
-    const root = document.getElementById("controls");
-    root.replaceChildren(...[...params.values()].map((p) => p.steps === 1 ? buildSwitch(p) : buildKnob(p)));
+    document.querySelectorAll("[data-floor]").forEach(buildFloor);
+    document.querySelectorAll("[data-knob]").forEach(buildKnob);
+    document.querySelectorAll("[data-stomp-switch]").forEach(buildStomp);
     for (const p of params.values()) views.get(p.id)?.(p);
   }
 
@@ -319,21 +685,23 @@
   // Mirrors the plugin's parameters so the page can be worked on in a
   // browser. Keep it in step with params when they change.
   function mockBridge() {
+    const percent = (n) => `${Math.round(n * 100)}%`;
+    const onOff = (n) => (n >= 0.5 ? "On" : "Off");
     const specs = [
-      { id: "mole", name: "Mole", steps: 0, default: 0, text: (n) => `${Math.round(n * 100)}%` },
-      { id: "bear", name: "Bear", steps: 0, default: 0.5, text: (n) => `${Math.round(n * 100)}%` },
-      { id: "you", name: "You", steps: 0, default: 1, text: (n) => `${Math.round(n * 100)}%` },
-      { id: "fox", name: "Fox", steps: 0, default: 0, text: (n) => `${Math.round(n * 100)}%` },
-      { id: "owl", name: "Owl", steps: 0, default: 0, text: (n) => `${Math.round(n * 100)}%` },
-      { id: "shade", name: "Shade", steps: 0, default: 0.6, text: (n) => `${Math.round(n * 100)}%` },
+      { id: "mole", name: "Mole", steps: 0, default: 0, text: percent },
+      { id: "bear", name: "Bear", steps: 0, default: 0.5, text: percent },
+      { id: "you", name: "You", steps: 0, default: 1, text: percent },
+      { id: "fox", name: "Fox", steps: 0, default: 0, text: percent },
+      { id: "owl", name: "Owl", steps: 0, default: 0, text: percent },
+      { id: "shade", name: "Shade", steps: 0, default: 0.6, text: percent },
       { id: "wake", name: "Wake", steps: 0, default: 0, text: (n) => `${Math.round(n * 1000)} ms` },
       { id: "sway", name: "Sway", steps: 0, default: 0, text: (n) => `${(n * 25).toFixed(1)} cents` },
-      { id: "mole_on", name: "Mole on", steps: 1, default: 1, text: (n) => (n >= 0.5 ? "On" : "Off") },
-      { id: "bear_on", name: "Bear on", steps: 1, default: 1, text: (n) => (n >= 0.5 ? "On" : "Off") },
-      { id: "you_on", name: "You on", steps: 1, default: 1, text: (n) => (n >= 0.5 ? "On" : "Off") },
-      { id: "fox_on", name: "Fox on", steps: 1, default: 1, text: (n) => (n >= 0.5 ? "On" : "Off") },
-      { id: "owl_on", name: "Owl on", steps: 1, default: 1, text: (n) => (n >= 0.5 ? "On" : "Off") },
-      { id: "stomp", name: "Stomp", steps: 1, default: 1, text: (n) => (n >= 0.5 ? "On" : "Off") },
+      { id: "mole_on", name: "Mole on", steps: 1, default: 1, text: onOff },
+      { id: "bear_on", name: "Bear on", steps: 1, default: 1, text: onOff },
+      { id: "you_on", name: "You on", steps: 1, default: 1, text: onOff },
+      { id: "fox_on", name: "Fox on", steps: 1, default: 1, text: onOff },
+      { id: "owl_on", name: "Owl on", steps: 1, default: 1, text: onOff },
+      { id: "stomp", name: "Stomp", steps: 1, default: 1, text: onOff },
     ];
     const values = Object.fromEntries(specs.map((s) => [s.id, s.default]));
     const send = (msg) => setTimeout(() => window.onPluginMessage(msg));

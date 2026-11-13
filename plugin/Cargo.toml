@@ -1,5 +1,5 @@
 [package]
-name = "totem"
+name = "altitude"
 version.workspace = true
 edition = "2021"
 publish = false

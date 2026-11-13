@@ -2,7 +2,7 @@
 set -eu
 cd "$(dirname "$0")/.."
 
-crate=totem
+crate=altitude
 name=$(sed -n 's/^name = "\(.*\)"/\1/p' bundler.toml)
 
 cargo xtask bundle "$crate" --release

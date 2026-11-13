@@ -1,4 +1,4 @@
-# Totem
+# Altitude
 
 Read `README.md` first for what the plugin does, its controls, and how to
 build and run it. This file has the maintainer details it leaves out.
@@ -11,7 +11,7 @@ build and run it. This file has the maintainer details it leaves out.
   `Controls::settings()` maps it onto them.
 - `plugin/src/params.rs`: host parameters, mapped to `Controls`.
 - `plugin/src/editor.rs` and `plugin/src/bridge.rs`: nothing specific to
-  Totem. The page's size and HTML come from `PAGE` in `lib.rs`, and the
+  Altitude. The page's size and HTML come from `PAGE` in `lib.rs`, and the
   bridge works with any `#[derive(Params)]` struct.
 - `ui/index.html`: the whole editor, compiled into the plugin, with a mock
   bridge for running it in a browser.
@@ -35,7 +35,7 @@ It has to go in six places:
 1. `Settings` in `engine.rs` and its `Default`, and `set()` if the
    engine needs it. If it's a front-panel-only control, `Controls`
    instead.
-2. `TotemParams` in `params.rs`, and its `raw_settings()` mapping.
+2. `AltitudeParams` in `params.rs`, and its `raw_settings()` mapping.
 3. The mock's `specs` in `ui/index.html`. The plugin's bridge picks new
    parameters up automatically, but the browser mock doesn't.
 4. A `data-knob` (or `data-floor`) element in the markup.
@@ -95,7 +95,7 @@ page before changing materials.
   pointer. Knobs take 200 px for the full range.
 - The local preview server (`python3 -m http.server`) gets cached by the
   browser. Add a query string like `?v=2` after each edit.
-- After a visible UI change, retake `docs/totem.jpg` with the
+- After a visible UI change, retake `docs/altitude.jpg` with the
   `screenshot` skill.
 
 ## Releases

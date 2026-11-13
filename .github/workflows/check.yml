@@ -10,8 +10,8 @@ concurrency:
   cancel-in-progress: true
 
 env:
-  CRATE: totem
-  PLUGIN: Totem
+  CRATE: altitude
+  PLUGIN: Altitude
 
 jobs:
   macos:

@@ -1,5 +1,5 @@
 #!/bin/sh
-# Usage: scripts/clap-validator.sh target/bundled/Totem.clap
+# Usage: scripts/clap-validator.sh target/bundled/Altitude.clap
 set -eu
 
 version=0.4.1

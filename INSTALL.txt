@@ -1,7 +1,7 @@
-Installing Totem
+Installing Altitude
 ==================
 
-Totem comes as a VST3 and a CLAP plugin. Copy both from the folder for
+Altitude comes as a VST3 and a CLAP plugin. Copy both from the folder for
 your computer, then rescan plugins in your DAW. Use the CLAP version if
 your DAW supports it.
 
@@ -11,14 +11,14 @@ macOS (Apple Silicon and Intel)
 
 1. In Finder, choose Go > Go to Folder and enter:
    ~/Library/Audio/Plug-Ins
-2. Copy macOS/Totem.vst3 into the VST3 folder.
-3. Copy macOS/Totem.clap into the CLAP folder.
+2. Copy macOS/Altitude.vst3 into the VST3 folder.
+3. Copy macOS/Altitude.clap into the CLAP folder.
    Create either folder if it isn’t there.
 
-Totem isn’t signed or notarized, so macOS may refuse to load it. If your
+Altitude isn’t signed or notarized, so macOS may refuse to load it. If your
 DAW doesn’t list it after a rescan, open Terminal, run this, then rescan:
 
-   xattr -dr com.apple.quarantine ~/Library/Audio/Plug-Ins/VST3/Totem.vst3 ~/Library/Audio/Plug-Ins/CLAP/Totem.clap
+   xattr -dr com.apple.quarantine ~/Library/Audio/Plug-Ins/VST3/Altitude.vst3 ~/Library/Audio/Plug-Ins/CLAP/Altitude.clap
 
 
 Windows
@@ -28,9 +28,9 @@ Before unzipping, right-click the zip, choose Properties, check Unblock
 and click OK. If SmartScreen or your antivirus blocks the download,
 choose to keep it.
 
-1. Copy Windows\Totem.vst3 into:
+1. Copy Windows\Altitude.vst3 into:
    C:\Program Files\Common Files\VST3
-2. Copy Windows\Totem.clap into:
+2. Copy Windows\Altitude.clap into:
    C:\Program Files\Common Files\CLAP
    Create either folder if it isn’t there.
 
@@ -38,4 +38,4 @@ choose to keep it.
 Uninstalling
 ------------
 
-Delete Totem.vst3 and Totem.clap from the folders above.
+Delete Altitude.vst3 and Altitude.clap from the folders above.

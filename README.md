@@ -1,6 +1,6 @@
-# Totem
+# Altitude
 
-<img src="docs/totem.jpg" width="305" alt="Totem, a red powder-coated stompbox with ivory Shade, Wake and Sway knobs, an amber preset window between chrome arrow buttons, five slide faders with carved cedar critter caps (Mole, Bear, You, Fox, Owl) under mint switch lights, a carved cedar Totem badge, and a chrome footswitch under an amber LED">
+<img src="docs/altitude.jpg" width="305" alt="Altitude, a red powder-coated stompbox with ivory Shade, Wake and Sway knobs, an amber preset window between chrome arrow buttons, five slide faders with carved cedar critter caps (Mole, Bear, You, Fox, Owl) under mint switch lights, a carved cedar Altitude badge, and a chrome footswitch under an amber LED">
 
 Stacked octaves for guitar, bass, synths or anything else, as a VST3 and
 CLAP plugin for macOS and Windows. Five floors mix two octaves down, one
@@ -84,15 +84,15 @@ and Custom once you change something.
 ## Installing
 
 Download the zip from
-[Releases](https://github.com/starzonmyarmz/totem/releases) and follow
+[Releases](https://github.com/starzonmyarmz/altitude/releases) and follow
 `INSTALL.txt` inside it.
 
 ## Building
 
 ```sh
-cargo xtask bundle totem --release         # target/bundled/Totem.{vst3,clap}
+cargo xtask bundle altitude --release         # target/bundled/Altitude.{vst3,clap}
 scripts/install.sh                         # bundle, sign ad hoc and install on macOS
-scripts/clap-validator.sh target/bundled/Totem.clap
+scripts/clap-validator.sh target/bundled/Altitude.clap
 ```
 
 ## Tests
@@ -113,7 +113,7 @@ work on it in a browser:
 cd ui && python3 -m http.server 8765    # open http://127.0.0.1:8765
 ```
 
-To load the page live in the plugin, set `TOTEM_UI_URL` to that URL
+To load the page live in the plugin, set `ALTITUDE_UI_URL` to that URL
 before starting the host.
 
 ## CI and releases
@@ -122,7 +122,7 @@ before starting the host.
   clap-validator on macOS, and clap-validator on the Windows build.
 - `release.yml` runs on `vX.Y.Z` tags. The tag must match `version` in
   the root `Cargo.toml`. It builds a universal macOS bundle and a
-  Windows bundle, validates both, and publishes `Totem-X.Y.Z.zip`
+  Windows bundle, validates both, and publishes `Altitude-X.Y.Z.zip`
   with `INSTALL.txt`.
 
 ## Built with

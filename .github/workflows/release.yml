@@ -11,8 +11,8 @@ concurrency:
   group: release-${{ github.ref_name }}
 
 env:
-  CRATE: totem
-  PLUGIN: Totem
+  CRATE: altitude
+  PLUGIN: Altitude
 
 jobs:
   version:

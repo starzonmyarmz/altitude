@@ -2,7 +2,7 @@ use crate::engine::{Controls, Settings};
 use nice_plug::prelude::*;
 
 #[derive(Params)]
-pub struct TotemParams {
+pub struct AltitudeParams {
     #[id = "mole"]
     pub down2: FloatParam,
     #[id = "bear"]
@@ -39,7 +39,7 @@ fn percent(name: &str, default: f64) -> FloatParam {
         .with_value_to_string(formatters::v2s_f32_rounded(0))
 }
 
-impl Default for TotemParams {
+impl Default for AltitudeParams {
     fn default() -> Self {
         let s = Settings::default();
         Self {
@@ -65,7 +65,7 @@ impl Default for TotemParams {
     }
 }
 
-impl TotemParams {
+impl AltitudeParams {
     pub fn settings(&self) -> Settings {
         Controls { settings: self.raw_settings(), stomp: self.stomp.value() }.settings()
     }

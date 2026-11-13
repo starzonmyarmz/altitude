@@ -4,31 +4,31 @@ pub mod engine;
 mod params;
 
 use engine::Engine;
-use params::TotemParams;
+use params::AltitudeParams;
 use nice_plug::prelude::*;
 use std::sync::Arc;
 
 static PAGE: editor::Page = editor::Page {
-    title: "Totem",
+    title: "Altitude",
     size: (508, 708),
     html: include_str!("../../ui/index.html"),
     background: (27, 26, 25, 255),
-    dev_url_var: "TOTEM_UI_URL",
+    dev_url_var: "ALTITUDE_UI_URL",
 };
 
-pub struct Totem {
-    params: Arc<TotemParams>,
+pub struct Altitude {
+    params: Arc<AltitudeParams>,
     engine: Engine,
 }
 
-impl Default for Totem {
+impl Default for Altitude {
     fn default() -> Self {
-        Self { params: Arc::new(TotemParams::default()), engine: Engine::new(48_000.0) }
+        Self { params: Arc::new(AltitudeParams::default()), engine: Engine::new(48_000.0) }
     }
 }
 
-impl Plugin for Totem {
-    const NAME: &'static str = "Totem";
+impl Plugin for Altitude {
+    const NAME: &'static str = "Altitude";
     const VENDOR: &'static str = "Dan Marino";
     const URL: &'static str = "";
     const EMAIL: &'static str = "";
@@ -83,18 +83,18 @@ impl Plugin for Totem {
     }
 }
 
-impl ClapPlugin for Totem {
-    const CLAP_ID: &'static str = "com.danmarino.totem";
+impl ClapPlugin for Altitude {
+    const CLAP_ID: &'static str = "com.danmarino.altitude";
     const CLAP_DESCRIPTION: Option<&'static str> = Some("Stacked octaves, two down to two up");
     const CLAP_MANUAL_URL: Option<&'static str> = None;
     const CLAP_SUPPORT_URL: Option<&'static str> = None;
     const CLAP_FEATURES: &'static [ClapFeature] = &[ClapFeature::AudioEffect, ClapFeature::PitchShifter, ClapFeature::Stereo];
 }
 
-impl Vst3Plugin for Totem {
-    const VST3_CLASS_ID: [u8; 16] = *b"TotemFxDanMarino";
+impl Vst3Plugin for Altitude {
+    const VST3_CLASS_ID: [u8; 16] = *b"AltitudeDanMarin";
     const VST3_SUBCATEGORIES: &'static [Vst3SubCategory] = &[Vst3SubCategory::Fx, Vst3SubCategory::PitchShift];
 }
 
-nice_export_clap!(Totem);
-nice_export_vst3!(Totem);
+nice_export_clap!(Altitude);
+nice_export_vst3!(Altitude);

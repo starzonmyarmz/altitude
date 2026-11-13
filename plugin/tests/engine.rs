@@ -1,6 +1,6 @@
 mod support;
 
-use totem::engine::{Controls, Engine, Settings};
+use altitude::engine::{Controls, Engine, Settings};
 
 const SR: f32 = 48_000.0;
 

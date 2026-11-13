@@ -7,36 +7,36 @@ use nice_plug::prelude::*;
 use std::sync::Arc;
 
 static PAGE: editor::Page = editor::Page {
-    title: "Example",
+    title: "Totem",
     size: (360, 220),
     html: include_str!("../../ui/index.html"),
     background: (27, 26, 25, 255),
-    dev_url_var: "EXAMPLE_UI_URL",
+    dev_url_var: "TOTEM_UI_URL",
 };
 
-pub struct Example {
-    params: Arc<ExampleParams>,
+pub struct Totem {
+    params: Arc<TotemParams>,
     engine: Engine,
 }
 
 #[derive(Params)]
-struct ExampleParams {
+struct TotemParams {
     #[id = "gain"]
     gain: FloatParam,
 }
 
-impl Default for Example {
+impl Default for Totem {
     fn default() -> Self {
         let gain = FloatParam::new("Gain", util::db_to_gain(0.0), FloatRange::gain_range(-30.0, 30.0))
             .with_unit(" dB")
             .with_value_to_string(formatters::v2s_f32_gain_to_db(2))
             .with_string_to_value(formatters::s2v_f32_gain_to_db());
-        Self { params: Arc::new(ExampleParams { gain }), engine: Engine::new(48_000.0) }
+        Self { params: Arc::new(TotemParams { gain }), engine: Engine::new(48_000.0) }
     }
 }
 
-impl Plugin for Example {
-    const NAME: &'static str = "Example";
+impl Plugin for Totem {
+    const NAME: &'static str = "Totem";
     const VENDOR: &'static str = "Dan Marino";
     const URL: &'static str = "";
     const EMAIL: &'static str = "";
@@ -91,18 +91,18 @@ impl Plugin for Example {
     }
 }
 
-impl ClapPlugin for Example {
-    const CLAP_ID: &'static str = "com.danmarino.example";
-    const CLAP_DESCRIPTION: Option<&'static str> = Some("A gain knob");
+impl ClapPlugin for Totem {
+    const CLAP_ID: &'static str = "com.danmarino.totem";
+    const CLAP_DESCRIPTION: Option<&'static str> = Some("Stacked octaves, two down to two up");
     const CLAP_MANUAL_URL: Option<&'static str> = None;
     const CLAP_SUPPORT_URL: Option<&'static str> = None;
     const CLAP_FEATURES: &'static [ClapFeature] = &[ClapFeature::AudioEffect, ClapFeature::Stereo];
 }
 
-impl Vst3Plugin for Example {
-    const VST3_CLASS_ID: [u8; 16] = *b"ExampleDanMarino";
+impl Vst3Plugin for Totem {
+    const VST3_CLASS_ID: [u8; 16] = *b"TotemFxDanMarino";
     const VST3_SUBCATEGORIES: &'static [Vst3SubCategory] = &[Vst3SubCategory::Fx];
 }
 
-nice_export_clap!(Example);
-nice_export_vst3!(Example);
+nice_export_clap!(Totem);
+nice_export_vst3!(Totem);

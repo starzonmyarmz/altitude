@@ -10,8 +10,8 @@ concurrency:
   cancel-in-progress: true
 
 env:
-  CRATE: example
-  PLUGIN: Example
+  CRATE: totem
+  PLUGIN: Totem
 
 jobs:
   macos:

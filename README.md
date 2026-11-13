@@ -124,6 +124,10 @@ before starting the host.
   the root `Cargo.toml`. It builds a universal macOS bundle and a
   Windows bundle, validates both, and publishes `Altitude-X.Y.Z.zip`
   with `INSTALL.txt`.
+- `screenshot.yml` runs on pushes to main that touch `ui/`, the version
+  or `plugin/src/lib.rs`. It retakes `docs/altitude.jpg` with
+  `scripts/screenshot.sh`, sets its width in the README, and commits both
+  if the image changed.
 
 ## Built with
 

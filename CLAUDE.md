@@ -94,8 +94,10 @@ page before changing materials. No wood.
   pointer. Knobs take 200 px for the full range.
 - The local preview server (`python3 -m http.server`) gets cached by the
   browser. Add a query string like `?v=2` after each edit.
-- After a visible UI change, retake `docs/altitude.jpg` with the
-  `screenshot` skill.
+- After a visible UI change, retake `docs/altitude.jpg` with the `screenshot`
+  skill, so the PR shows it and the README's `alt` text stays right. The
+  Screenshot workflow also retakes it on main, but can't update the
+  `alt` text.
 
 ## Releases
 

@@ -79,6 +79,14 @@ impl Shifter {
     }
 }
 
+fn flush(x: f64) -> f64 {
+    if x.abs() < 1e-30 {
+        0.0
+    } else {
+        x
+    }
+}
+
 fn read(mem: &[f64], base: usize, wpos: usize, d: f64) -> f64 {
     let mut pos = wpos as f64 - d;
     if pos < 0.0 {
@@ -247,19 +255,19 @@ impl Engine {
         let mono = (spl0 + spl1) * 0.5;
 
         // Pre-filter the up voices' input so shifted content stays below Nyquist.
-        self.f1a = self.f1a * self.aa1 + mono * (1.0 - self.aa1);
-        self.f1b = self.f1b * self.aa1 + self.f1a * (1.0 - self.aa1);
-        self.f2a = self.f2a * self.aa2 + mono * (1.0 - self.aa2);
-        self.f2b = self.f2b * self.aa2 + self.f2a * (1.0 - self.aa2);
+        self.f1a = flush(self.f1a * self.aa1 + mono * (1.0 - self.aa1));
+        self.f1b = flush(self.f1b * self.aa1 + self.f1a * (1.0 - self.aa1));
+        self.f2a = flush(self.f2a * self.aa2 + mono * (1.0 - self.aa2));
+        self.f2b = flush(self.f2b * self.aa2 + self.f2a * (1.0 - self.aa2));
         self.mem[self.wpos] = mono;
         self.mem[N + self.wpos] = self.f1b;
         self.mem[2 * N + self.wpos] = self.f2b;
 
-        self.g1s += (self.g1 - self.g1s) * self.gsmooth;
-        self.g2s += (self.g2 - self.g2s) * self.gsmooth;
-        self.gds += (self.gd - self.gds) * self.gsmooth;
-        self.g4s += (self.g4 - self.g4s) * self.gsmooth;
-        self.g5s += (self.g5 - self.g5s) * self.gsmooth;
+        self.g1s = flush(self.g1s + (self.g1 - self.g1s) * self.gsmooth);
+        self.g2s = flush(self.g2s + (self.g2 - self.g2s) * self.gsmooth);
+        self.gds = flush(self.gds + (self.gd - self.gds) * self.gsmooth);
+        self.g4s = flush(self.g4s + (self.g4 - self.g4s) * self.gsmooth);
+        self.g5s = flush(self.g5s + (self.g5 - self.g5s) * self.gsmooth);
 
         let (mem, wpos) = (&self.mem, self.wpos);
         let mut wet = self.down2.tick(mem, wpos, self.r_d2) * self.g1s
@@ -272,15 +280,15 @@ impl Engine {
             self.wpos = 0;
         }
 
-        self.t1 = self.t1 * self.tone_a + wet * (1.0 - self.tone_a);
-        self.t2 = self.t2 * self.tone_a + self.t1 * (1.0 - self.tone_a);
-        wet = self.hp_a * (self.hy + self.t2 - self.hx);
+        self.t1 = flush(self.t1 * self.tone_a + wet * (1.0 - self.tone_a));
+        self.t2 = flush(self.t2 * self.tone_a + self.t1 * (1.0 - self.tone_a));
+        wet = flush(self.hp_a * (self.hy + self.t2 - self.hx));
         self.hx = self.t2;
         self.hy = wet;
 
         let env = mono.abs();
-        self.envf += (env - self.envf) * if env > self.envf { self.env_att } else { self.env_rel };
-        self.envs += (env - self.envs) * self.env_slow;
+        self.envf = flush(self.envf + (env - self.envf) * if env > self.envf { self.env_att } else { self.env_rel });
+        self.envs = flush(self.envs + (env - self.envs) * self.env_slow);
         if self.trighang > 0.0 {
             self.trighang -= 1.0;
         } else if self.envf > self.envs * 2.0 + 0.002 && self.envf > 0.008 {
@@ -290,6 +298,6 @@ impl Engine {
         self.swell = (self.swell + self.att_inc).min(1.0);
         wet *= self.swell * self.swell;
 
-        (spl0 * self.gds + wet, spl1 * self.gds + wet)
+        (flush(spl0 * self.gds + wet), flush(spl1 * self.gds + wet))
     }
 }

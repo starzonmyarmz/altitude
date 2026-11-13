@@ -75,3 +75,14 @@ fn octave_down_lands_an_octave_down() {
     let freq = crossings as f64 / (tail.len() as f64 / SR as f64);
     assert!((freq - 110.0).abs() < 5.0, "{freq} Hz");
 }
+
+#[test]
+fn silence_after_the_riff_settles_to_exact_zero() {
+    let mut engine = Engine::new(SR);
+    engine.set(Settings { attack_ms: 300.0, ..floors(100.0, 100.0, 100.0, 100.0, 100.0) });
+    for s in riff() {
+        engine.tick(s as f64, s as f64);
+    }
+    let silence: Vec<(f64, f64)> = (0..20 * SR as usize).map(|_| engine.tick(0.0, 0.0)).collect();
+    assert!(silence[silence.len() - SR as usize..].iter().all(|&(l, r)| l == 0.0 && r == 0.0));
+}

@@ -1,0 +1,24 @@
+[workspace]
+resolver = "2"
+members = ["plugin", "xtask"]
+
+[workspace.package]
+version = "0.1.0"
+
+[profile.release]
+lto = "thin"
+strip = "symbols"
+
+[profile.profiling]
+inherits = "release"
+debug = true
+strip = "none"
+
+# Old objc-based crates message nil, which Objective-C allows but Rust's
+# debug-build null checks turn into aborts.
+[profile.dev.package.objc]
+debug-assertions = false
+[profile.dev.package.baseview]
+debug-assertions = false
+[profile.dev.package.wry]
+debug-assertions = false

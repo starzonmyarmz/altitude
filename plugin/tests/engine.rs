@@ -1,6 +1,6 @@
 mod support;
 
-use totem::engine::{Engine, Settings};
+use totem::engine::{Controls, Engine, Settings};
 
 const SR: f32 = 48_000.0;
 
@@ -85,4 +85,15 @@ fn silence_after_the_riff_settles_to_exact_zero() {
     }
     let silence: Vec<(f64, f64)> = (0..20 * SR as usize).map(|_| engine.tick(0.0, 0.0)).collect();
     assert!(silence[silence.len() - SR as usize..].iter().all(|&(l, r)| l == 0.0 && r == 0.0));
+}
+
+#[test]
+fn stomp_off_passes_input_through_after_the_floors_fade() {
+    let input = riff();
+    let stacked = Settings { dry: 40.0, ..floors(100.0, 100.0, 40.0, 100.0, 100.0) };
+    let (l, _) = render(&input, Controls { settings: stacked, stomp: false }.settings());
+    let settled = SR as usize / 2;
+    for (out, inp) in l[settled..].iter().zip(&input[settled..]) {
+        assert!((out - inp).abs() < 1e-6);
+    }
 }

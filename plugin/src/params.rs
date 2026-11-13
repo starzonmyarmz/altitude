@@ -1,34 +1,36 @@
-use crate::engine::Settings;
+use crate::engine::{Controls, Settings};
 use nice_plug::prelude::*;
 
 #[derive(Params)]
 pub struct TotemParams {
-    #[id = "down2"]
+    #[id = "mole"]
     pub down2: FloatParam,
-    #[id = "down1"]
+    #[id = "bear"]
     pub down1: FloatParam,
-    #[id = "dry"]
+    #[id = "you"]
     pub dry: FloatParam,
-    #[id = "up1"]
+    #[id = "fox"]
     pub up1: FloatParam,
-    #[id = "up2"]
+    #[id = "owl"]
     pub up2: FloatParam,
-    #[id = "tone"]
+    #[id = "shade"]
     pub tone: FloatParam,
-    #[id = "attack"]
+    #[id = "wake"]
     pub attack: FloatParam,
-    #[id = "detune"]
+    #[id = "sway"]
     pub detune: FloatParam,
-    #[id = "down2_on"]
+    #[id = "mole_on"]
     pub down2_on: BoolParam,
-    #[id = "down1_on"]
+    #[id = "bear_on"]
     pub down1_on: BoolParam,
-    #[id = "dry_on"]
+    #[id = "you_on"]
     pub dry_on: BoolParam,
-    #[id = "up1_on"]
+    #[id = "fox_on"]
     pub up1_on: BoolParam,
-    #[id = "up2_on"]
+    #[id = "owl_on"]
     pub up2_on: BoolParam,
+    #[id = "stomp"]
+    pub stomp: BoolParam,
 }
 
 fn percent(name: &str, default: f64) -> FloatParam {
@@ -41,29 +43,34 @@ impl Default for TotemParams {
     fn default() -> Self {
         let s = Settings::default();
         Self {
-            down2: percent("Oct -2", s.down2),
-            down1: percent("Oct -1", s.down1),
-            dry: percent("Dry", s.dry),
-            up1: percent("Oct +1", s.up1),
-            up2: percent("Oct +2", s.up2),
-            tone: percent("Tone", s.tone),
-            attack: FloatParam::new("Attack", s.attack_ms as f32, FloatRange::Linear { min: 0.0, max: 1000.0 })
+            down2: percent("Mole", s.down2),
+            down1: percent("Bear", s.down1),
+            dry: percent("You", s.dry),
+            up1: percent("Fox", s.up1),
+            up2: percent("Owl", s.up2),
+            tone: percent("Shade", s.tone),
+            attack: FloatParam::new("Wake", s.attack_ms as f32, FloatRange::Linear { min: 0.0, max: 1000.0 })
                 .with_unit(" ms")
                 .with_value_to_string(formatters::v2s_f32_rounded(0)),
-            detune: FloatParam::new("Detune", s.detune_cents as f32, FloatRange::Linear { min: 0.0, max: 25.0 })
+            detune: FloatParam::new("Sway", s.detune_cents as f32, FloatRange::Linear { min: 0.0, max: 25.0 })
                 .with_unit(" cents")
                 .with_value_to_string(formatters::v2s_f32_rounded(1)),
-            down2_on: BoolParam::new("Oct -2 on", s.down2_on),
-            down1_on: BoolParam::new("Oct -1 on", s.down1_on),
-            dry_on: BoolParam::new("Dry on", s.dry_on),
-            up1_on: BoolParam::new("Oct +1 on", s.up1_on),
-            up2_on: BoolParam::new("Oct +2 on", s.up2_on),
+            down2_on: BoolParam::new("Mole on", s.down2_on),
+            down1_on: BoolParam::new("Bear on", s.down1_on),
+            dry_on: BoolParam::new("You on", s.dry_on),
+            up1_on: BoolParam::new("Fox on", s.up1_on),
+            up2_on: BoolParam::new("Owl on", s.up2_on),
+            stomp: BoolParam::new("Stomp", Controls::default().stomp),
         }
     }
 }
 
 impl TotemParams {
     pub fn settings(&self) -> Settings {
+        Controls { settings: self.raw_settings(), stomp: self.stomp.value() }.settings()
+    }
+
+    fn raw_settings(&self) -> Settings {
         Settings {
             down2: self.down2.value() as f64,
             down1: self.down1.value() as f64,

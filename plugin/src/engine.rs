@@ -48,6 +48,29 @@ impl Default for Settings {
     }
 }
 
+/// The front panel: the engine's settings plus the footswitch.
+#[derive(Clone, Copy, Debug)]
+pub struct Controls {
+    pub settings: Settings,
+    /// Off fades the octave floors out and passes the input at full level.
+    pub stomp: bool,
+}
+
+impl Default for Controls {
+    fn default() -> Self {
+        Self { settings: Settings::default(), stomp: true }
+    }
+}
+
+impl Controls {
+    pub fn settings(&self) -> Settings {
+        if self.stomp {
+            return self.settings;
+        }
+        Settings { dry: 100.0, dry_on: true, down2_on: false, down1_on: false, up1_on: false, up2_on: false, ..self.settings }
+    }
+}
+
 /// A granular pitch shifter: two taps sweep through a delay line at the
 /// shift rate, crossfaded with sin² windows so the wrap is silent.
 struct Shifter {

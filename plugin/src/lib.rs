@@ -1,14 +1,16 @@
 mod bridge;
 mod editor;
 pub mod engine;
+mod params;
 
 use engine::Engine;
+use params::TotemParams;
 use nice_plug::prelude::*;
 use std::sync::Arc;
 
 static PAGE: editor::Page = editor::Page {
     title: "Totem",
-    size: (360, 220),
+    size: (760, 340),
     html: include_str!("../../ui/index.html"),
     background: (27, 26, 25, 255),
     dev_url_var: "TOTEM_UI_URL",
@@ -19,19 +21,9 @@ pub struct Totem {
     engine: Engine,
 }
 
-#[derive(Params)]
-struct TotemParams {
-    #[id = "gain"]
-    gain: FloatParam,
-}
-
 impl Default for Totem {
     fn default() -> Self {
-        let gain = FloatParam::new("Gain", util::db_to_gain(0.0), FloatRange::gain_range(-30.0, 30.0))
-            .with_unit(" dB")
-            .with_value_to_string(formatters::v2s_f32_gain_to_db(2))
-            .with_string_to_value(formatters::s2v_f32_gain_to_db());
-        Self { params: Arc::new(TotemParams { gain }), engine: Engine::new(48_000.0) }
+        Self { params: Arc::new(TotemParams::default()), engine: Engine::new(48_000.0) }
     }
 }
 
@@ -69,12 +61,12 @@ impl Plugin for Totem {
         if self.engine.sample_rate() != buffer_config.sample_rate {
             self.engine = Engine::new(buffer_config.sample_rate);
         }
-        self.engine.reset(self.params.gain.value());
+        self.engine.set(self.params.settings());
         true
     }
 
     fn reset(&mut self) {
-        self.engine.reset(self.params.gain.value());
+        self.engine.reset();
     }
 
     fn process(
@@ -83,7 +75,7 @@ impl Plugin for Totem {
         _aux: &mut AuxiliaryBuffers,
         _context: &mut impl ProcessContext<Self>,
     ) -> ProcessStatus {
-        self.engine.set_gain(self.params.gain.value());
+        self.engine.set(self.params.settings());
         if let [left, right] = buffer.as_slice() {
             self.engine.process(left, right);
         }
@@ -96,12 +88,12 @@ impl ClapPlugin for Totem {
     const CLAP_DESCRIPTION: Option<&'static str> = Some("Stacked octaves, two down to two up");
     const CLAP_MANUAL_URL: Option<&'static str> = None;
     const CLAP_SUPPORT_URL: Option<&'static str> = None;
-    const CLAP_FEATURES: &'static [ClapFeature] = &[ClapFeature::AudioEffect, ClapFeature::Stereo];
+    const CLAP_FEATURES: &'static [ClapFeature] = &[ClapFeature::AudioEffect, ClapFeature::PitchShifter, ClapFeature::Stereo];
 }
 
 impl Vst3Plugin for Totem {
     const VST3_CLASS_ID: [u8; 16] = *b"TotemFxDanMarino";
-    const VST3_SUBCATEGORIES: &'static [Vst3SubCategory] = &[Vst3SubCategory::Fx];
+    const VST3_SUBCATEGORIES: &'static [Vst3SubCategory] = &[Vst3SubCategory::Fx, Vst3SubCategory::PitchShift];
 }
 
 nice_export_clap!(Totem);

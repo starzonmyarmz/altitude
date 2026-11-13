@@ -320,7 +320,19 @@
   // browser. Keep it in step with params when they change.
   function mockBridge() {
     const specs = [
-      { id: "gain", name: "Gain", steps: 0, default: 0.5, text: (n) => `${(n * 60 - 30).toFixed(2)} dB` },
+      { id: "down2", name: "Oct -2", steps: 0, default: 0, text: (n) => `${Math.round(n * 100)}%` },
+      { id: "down1", name: "Oct -1", steps: 0, default: 0.5, text: (n) => `${Math.round(n * 100)}%` },
+      { id: "dry", name: "Dry", steps: 0, default: 1, text: (n) => `${Math.round(n * 100)}%` },
+      { id: "up1", name: "Oct +1", steps: 0, default: 0, text: (n) => `${Math.round(n * 100)}%` },
+      { id: "up2", name: "Oct +2", steps: 0, default: 0, text: (n) => `${Math.round(n * 100)}%` },
+      { id: "tone", name: "Tone", steps: 0, default: 0.6, text: (n) => `${Math.round(n * 100)}%` },
+      { id: "attack", name: "Attack", steps: 0, default: 0, text: (n) => `${Math.round(n * 1000)} ms` },
+      { id: "detune", name: "Detune", steps: 0, default: 0, text: (n) => `${(n * 25).toFixed(1)} cents` },
+      { id: "down2_on", name: "Oct -2 on", steps: 1, default: 1, text: (n) => (n >= 0.5 ? "On" : "Off") },
+      { id: "down1_on", name: "Oct -1 on", steps: 1, default: 1, text: (n) => (n >= 0.5 ? "On" : "Off") },
+      { id: "dry_on", name: "Dry on", steps: 1, default: 1, text: (n) => (n >= 0.5 ? "On" : "Off") },
+      { id: "up1_on", name: "Oct +1 on", steps: 1, default: 1, text: (n) => (n >= 0.5 ? "On" : "Off") },
+      { id: "up2_on", name: "Oct +2 on", steps: 1, default: 1, text: (n) => (n >= 0.5 ? "On" : "Off") },
     ];
     const values = Object.fromEntries(specs.map((s) => [s.id, s.default]));
     const send = (msg) => setTimeout(() => window.onPluginMessage(msg));

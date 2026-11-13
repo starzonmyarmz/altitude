@@ -6,26 +6,22 @@
 <style>
   :root {
     --board: #181716;
-    --coat: #d9432f;
-    --coat-hi: #f2735a;
-    --coat-lo: #8f2219;
-    --ink: #1b1611;
-    --silk: #fff1d6;
-    --silk-soft: rgb(255 241 214 / 0.6);
+    --coat: #9fc4de;
+    --coat-hi: #c6def0;
+    --coat-lo: #5f8db0;
+    --ink: #1d2e4a;
+    --ink-soft: rgb(29 46 74 / 0.6);
     --cream: #f4ead2;
     --chrome-hi: #fbfbf9;
     --chrome: #c4c6c8;
     --chrome-lo: #6d7074;
-    --ivory: #efe3c6;
-    --ivory-hi: #fffaf0;
-    --ivory-lo: #b9a67c;
-    --cedar: #a8613a;
-    --cedar-hi: #d08a5c;
-    --cedar-lo: #5e2f17;
-    --mustard: #f2c230;
-    --mint: #6fd3b0;
+    --ivory: #efe7d4;
+    --ivory-hi: #fffcf4;
+    --ivory-lo: #b8ab8c;
+    --amber: #f2b230;
+    --green: #5be37a;
     --pill: #120f0c;
-    --display: "Chango", sans-serif;
+    --display: "Rammetto One", sans-serif;
     --label: "Jost", Futura, sans-serif;
   }
 
@@ -47,7 +43,7 @@
       radial-gradient(ellipse at 50% 40%, rgb(255 255 255 / 0.05), transparent 65%),
       var(--board);
     font-family: var(--label);
-    color: var(--silk);
+    color: var(--ink);
   }
 
   button {
@@ -59,7 +55,7 @@
   }
 
   :focus-visible {
-    outline: 2px solid var(--cream);
+    outline: 2px solid var(--ink);
     outline-offset: 4px;
   }
 
@@ -77,12 +73,17 @@
       linear-gradient(155deg, var(--coat-hi), var(--coat) 38%, var(--coat-lo));
     background-blend-mode: soft-light, normal;
     box-shadow:
-      inset 2px 3px 0 rgb(255 255 255 / 0.3),
-      inset -3px -5px 0 rgb(0 0 0 / 0.22),
-      inset 0 0 0 1px rgb(0 0 0 / 0.25),
-      0 2px 0 #5c160f,
+      inset 2px 3px 0 rgb(255 255 255 / 0.4),
+      inset -3px -5px 0 rgb(0 0 0 / 0.18),
+      inset 0 0 0 1px rgb(0 0 0 / 0.22),
+      0 2px 0 #3d5f7c,
       0 26px 40px rgb(0 0 0 / 0.65),
       0 6px 10px rgb(0 0 0 / 0.5);
+  }
+
+  .print {
+    color: var(--ink);
+    mix-blend-mode: multiply;
   }
 
   .screw {
@@ -118,7 +119,7 @@
     font-size: 8px;
     font-weight: 800;
     letter-spacing: 0.22em;
-    color: var(--silk-soft);
+    color: var(--ink-soft);
   }
 
   .label {
@@ -179,7 +180,7 @@
     border-radius: 50%;
     touch-action: none;
     cursor: ns-resize;
-    filter: drop-shadow(0 5px 4px rgb(0 0 0 / 0.45)) drop-shadow(0 1px 0 rgb(0 0 0 / 0.5));
+    filter: drop-shadow(0 5px 4px rgb(0 0 0 / 0.4)) drop-shadow(0 1px 0 rgb(0 0 0 / 0.45));
 
     &:focus-visible { outline-offset: 10px; }
   }
@@ -193,7 +194,7 @@
     inset: 0;
     rotate: calc(var(--turn) * var(--sweep) - var(--sweep) / 2);
     background:
-      radial-gradient(circle, transparent 60%, rgb(0 0 0 / 0.35) 100%),
+      radial-gradient(circle, transparent 60%, rgb(0 0 0 / 0.3) 100%),
       repeating-conic-gradient(var(--ivory) 0 5deg, var(--ivory-lo) 5deg 10deg);
   }
 
@@ -202,7 +203,7 @@
     background:
       radial-gradient(circle at 34% 28%, rgb(255 255 255 / 0.7), transparent 55%),
       radial-gradient(circle at 50% 50%, var(--ivory-hi), var(--ivory) 70%, var(--ivory-lo));
-    box-shadow: inset 0 -2px 3px rgb(0 0 0 / 0.18), 0 0 0 1px rgb(0 0 0 / 0.35);
+    box-shadow: inset 0 -2px 3px rgb(0 0 0 / 0.16), 0 0 0 1px rgb(0 0 0 / 0.3);
   }
 
   .knob .pointer {
@@ -240,7 +241,7 @@
         inline-size: 3px;
         aspect-ratio: 1;
         border-radius: 50%;
-        background: var(--silk);
+        background: var(--ink);
       }
       &.major::before { scale: 1.5; }
     }
@@ -265,10 +266,10 @@
       linear-gradient(rgb(255 255 255 / 0.12), transparent 40%),
       radial-gradient(ellipse at 50% 50%, #f7c35a, #c9851c);
     box-shadow:
-      0 0 0 3px #2a201a,
-      0 0 0 4px rgb(255 255 255 / 0.18),
+      0 0 0 3px #1c2433,
+      0 0 0 4px rgb(255 255 255 / 0.25),
       inset 0 2px 6px rgb(0 0 0 / 0.45),
-      0 0 18px rgb(242 194 48 / 0.25);
+      0 0 18px rgb(242 178 48 / 0.3);
     color: #3b2208;
     font-size: 13px;
     font-weight: 700;
@@ -289,37 +290,29 @@
     font-size: 12px;
     font-weight: 900;
     background: radial-gradient(circle at 38% 30%, var(--chrome-hi), var(--chrome) 45%, var(--chrome-lo) 95%);
-    box-shadow: 0 3px 3px rgb(0 0 0 / 0.5), inset 0 0 0 1px rgb(0 0 0 / 0.3), inset 0 -2px 3px rgb(0 0 0 / 0.2);
+    box-shadow: 0 3px 3px rgb(0 0 0 / 0.45), inset 0 0 0 1px rgb(0 0 0 / 0.3), inset 0 -2px 3px rgb(0 0 0 / 0.2);
     transition: translate 60ms, box-shadow 60ms;
 
     &:active {
       translate: 0 2px;
-      box-shadow: 0 1px 1px rgb(0 0 0 / 0.5), inset 0 0 0 1px rgb(0 0 0 / 0.3), inset 0 -1px 2px rgb(0 0 0 / 0.25);
+      box-shadow: 0 1px 1px rgb(0 0 0 / 0.45), inset 0 0 0 1px rgb(0 0 0 / 0.3), inset 0 -1px 2px rgb(0 0 0 / 0.25);
     }
   }
 
-  /* ---------- fader bay ---------- */
+  /* ---------- faders ---------- */
 
   .bay {
+    position: relative;
     display: flex;
     justify-content: space-between;
     inline-size: 100%;
-    margin-block-start: 18px;
-    padding: 12px 18px 10px;
-    border-radius: 12px;
-    background:
-      linear-gradient(rgb(255 255 255 / 0.04), transparent 30%),
-      #1e1714;
-    box-shadow:
-      inset 0 3px 6px rgb(0 0 0 / 0.6),
-      inset 0 -1px 0 rgb(255 255 255 / 0.08),
-      0 1px 0 rgb(255 255 255 / 0.25);
+    margin-block-start: 22px;
+    padding-inline: 18px;
   }
 
   .fader {
     --level: 0;
-    --travel: 96px;
-    --open: calc(0.12 + var(--level) * 0.88);
+    --travel: 104px;
     position: relative;
     display: grid;
     justify-items: center;
@@ -332,36 +325,36 @@
   }
 
   .floor-led {
-    inline-size: 18px;
+    inline-size: 14px;
     aspect-ratio: 1;
     border-radius: 50%;
     cursor: pointer;
-    background: radial-gradient(circle at 40% 35%, #5d8f7d, #1d3a31 65%);
+    background: radial-gradient(circle at 40% 35%, #6f9a78, #1e3a25 65%);
     box-shadow:
-      0 0 0 3px #3a3330,
-      0 0 0 4px rgb(0 0 0 / 0.5),
+      0 0 0 3px #8b8d90,
+      0 0 0 4px rgb(0 0 0 / 0.35),
       inset 0 -2px 3px rgb(0 0 0 / 0.5);
     transition: background 80ms, box-shadow 80ms;
 
     &[aria-pressed="true"] {
-      background: radial-gradient(circle at 40% 35%, #f2fff9, var(--mint) 45%, #2f8a6c);
+      background: radial-gradient(circle at 40% 35%, #f0fff2, var(--green) 45%, #22963d);
       box-shadow:
-        0 0 0 3px #3a3330,
-        0 0 0 4px rgb(0 0 0 / 0.5),
-        0 0 10px 3px rgb(111 211 176 / 0.55),
-        0 0 22px 6px rgb(111 211 176 / 0.2);
+        0 0 0 3px #8b8d90,
+        0 0 0 4px rgb(0 0 0 / 0.35),
+        0 0 10px 3px rgb(91 227 122 / 0.5),
+        0 0 20px 6px rgb(91 227 122 / 0.18);
     }
   }
 
   .pedal[data-stomp="off"] .fader:not([data-floor="you"]) .floor-led[aria-pressed="true"] {
-    background: radial-gradient(circle at 40% 35%, #8fbfae, #2f5a4c 65%);
-    box-shadow: 0 0 0 3px #3a3330, 0 0 0 4px rgb(0 0 0 / 0.5), inset 0 -2px 3px rgb(0 0 0 / 0.5);
+    background: radial-gradient(circle at 40% 35%, #a7d6b2, #3c6e48 65%);
+    box-shadow: 0 0 0 3px #8b8d90, 0 0 0 4px rgb(0 0 0 / 0.35), inset 0 -2px 3px rgb(0 0 0 / 0.5);
   }
 
   .slot {
     position: relative;
     inline-size: 50px;
-    block-size: calc(var(--travel) + 36px);
+    block-size: calc(var(--travel) + 26px);
     touch-action: none;
     cursor: ns-resize;
     outline: 0;
@@ -369,82 +362,47 @@
     &::before {
       content: "";
       position: absolute;
-      inset-block: 14px;
+      inset-block: 10px;
       inset-inline-start: calc(50% - 3px);
       inline-size: 6px;
       border-radius: 3px;
-      background: #050403;
-      box-shadow: inset 0 1px 2px #000, 0 1px 0 rgb(255 255 255 / 0.12);
+      background: #0b1220;
+      box-shadow: inset 0 1px 2px #000, 0 1px 0 rgb(255 255 255 / 0.4);
     }
 
     &::after {
       content: "";
       position: absolute;
-      inset-block: 18px;
+      inset-block: 12px;
       inset-inline: 2px;
       background:
-        repeating-linear-gradient(transparent 0 calc(var(--travel) / 10 - 1px), var(--silk-soft) calc(var(--travel) / 10 - 1px) calc(var(--travel) / 10)) left / 8px 100% no-repeat,
-        repeating-linear-gradient(transparent 0 calc(var(--travel) / 10 - 1px), var(--silk-soft) calc(var(--travel) / 10 - 1px) calc(var(--travel) / 10)) right / 8px 100% no-repeat;
-      opacity: 0.45;
+        repeating-linear-gradient(transparent 0 calc(var(--travel) / 10 - 1.5px), var(--ink) calc(var(--travel) / 10 - 1.5px) calc(var(--travel) / 10)) left / 9px 100% no-repeat,
+        repeating-linear-gradient(transparent 0 calc(var(--travel) / 10 - 1.5px), var(--ink) calc(var(--travel) / 10 - 1.5px) calc(var(--travel) / 10)) right / 9px 100% no-repeat;
+      mix-blend-mode: multiply;
+      opacity: 0.75;
       pointer-events: none;
     }
 
-    &:focus-visible .cap { outline: 2px solid var(--cream); outline-offset: 3px; }
+    &:focus-visible .cap { outline: 2px solid var(--ink); outline-offset: 3px; }
   }
 
   .slot .cap {
     position: absolute;
     z-index: 1;
-    inset-inline-start: 3px;
+    inset-inline-start: 9px;
     inset-block-end: calc(var(--level) * var(--travel));
-    inline-size: 44px;
-    block-size: 36px;
-    border-radius: 6px 6px 7px 7px;
+    inline-size: 32px;
+    block-size: 26px;
+    border-radius: 4px;
     background:
-      repeating-linear-gradient(94deg, rgb(0 0 0 / 0.07) 0 2px, transparent 2px 5px),
-      linear-gradient(var(--cedar-hi), var(--cedar) 45%, var(--cedar-lo));
+      linear-gradient(transparent calc(50% - 1.5px), var(--ink) calc(50% - 1.5px) calc(50% + 1.5px), transparent calc(50% + 1.5px)),
+      repeating-linear-gradient(transparent 0 3px, rgb(0 0 0 / 0.07) 3px 4px),
+      linear-gradient(var(--ivory-hi), var(--ivory) 55%, var(--ivory-lo));
     box-shadow:
-      inset 0 1px 0 rgb(255 255 255 / 0.35),
-      inset 0 -3px 0 rgb(0 0 0 / 0.3),
-      0 5px 5px rgb(0 0 0 / 0.55),
-      0 1px 0 rgb(0 0 0 / 0.6);
-
-    & svg {
-      position: absolute;
-      inset: 0;
-      inline-size: 100%;
-      block-size: 100%;
-      overflow: visible;
-    }
-  }
-
-  .carve {
-    fill: none;
-    stroke: #3a1a0a;
-    stroke-width: 2.4;
-    stroke-linecap: round;
-    stroke-linejoin: round;
-  }
-
-  .carve-fill { fill: #3a1a0a; }
-
-  .cap svg {
-    filter: drop-shadow(0 1px 0 rgb(255 220 190 / 0.45));
-
-    & .mouth {
-      transform-box: fill-box;
-      transform-origin: center;
-      scale: 1 var(--open);
-      transition: scale 90ms;
-    }
-    & .shut { display: none; }
-  }
-
-  .fader[data-on="false"], .pedal[data-stomp="off"] .fader:not([data-floor="you"]) {
-    --open: 0.08;
-
-    & .cap .open { display: none; }
-    & .cap .shut { display: inline; }
+      inset 0 1px 0 rgb(255 255 255 / 0.8),
+      inset 0 -2px 0 rgb(0 0 0 / 0.2),
+      0 5px 5px rgb(0 0 0 / 0.45),
+      0 1px 0 rgb(0 0 0 / 0.5);
   }
 
   .fader .names {
@@ -456,65 +414,43 @@
       font-size: 8px;
       font-weight: 800;
       letter-spacing: 0.16em;
-      color: var(--silk-soft);
+      color: var(--ink-soft);
     }
   }
 
-  /* ---------- badge ---------- */
+  /* ---------- wordmark ---------- */
 
   .brand {
     align-self: center;
     display: grid;
     justify-items: center;
-    gap: 9px;
+    gap: 2px;
   }
 
-  .badge {
-    position: relative;
-    display: grid;
-    place-items: center;
-    inline-size: 244px;
-    block-size: 64px;
-    border-radius: 10px;
-    background:
-      repeating-linear-gradient(91deg, rgb(0 0 0 / 0.08) 0 2px, transparent 2px 6px),
-      repeating-linear-gradient(88deg, rgb(255 255 255 / 0.05) 0 1px, transparent 1px 9px),
-      linear-gradient(var(--cedar-hi), var(--cedar) 50%, var(--cedar-lo));
-    box-shadow:
-      inset 0 1px 0 rgb(255 255 255 / 0.35),
-      inset 0 -3px 0 rgb(0 0 0 / 0.3),
-      0 4px 6px rgb(0 0 0 / 0.5),
-      0 1px 0 rgb(0 0 0 / 0.5);
+  .range {
+    inline-size: 280px;
+    block-size: 50px;
+    overflow: visible;
 
-    & span {
-      font-family: var(--display);
-      font-size: 36px;
-      letter-spacing: -0.03em;
-      line-height: 1;
-      padding-block-start: 0.1em;
-      color: #3a1a0a;
-      text-shadow: 0 1px 0 rgb(255 220 190 / 0.5), 0 -1px 0 rgb(0 0 0 / 0.35);
-    }
+    & path { fill: none; stroke: currentColor; stroke-linejoin: round; stroke-linecap: round; }
+    & .ridge { stroke-width: 2.6; }
+    & .contour { stroke-width: 1.2; opacity: 0.55; }
+    & circle { fill: none; stroke: currentColor; stroke-width: 1.6; }
+  }
 
-    & i {
-      position: absolute;
-      inset-block-start: calc(50% - 4px);
-      inline-size: 8px;
-      aspect-ratio: 1;
-      border-radius: 50%;
-      background: radial-gradient(circle at 35% 30%, #fff3c4, #c99a3a 50%, #6e4d12);
-      box-shadow: 0 1px 1px rgb(0 0 0 / 0.5);
-
-      &:first-of-type { inset-inline-start: 10px; }
-      &:last-of-type { inset-inline-end: 10px; }
-    }
+  .wordmark {
+    font-family: var(--display);
+    font-size: 46px;
+    line-height: 1;
+    letter-spacing: 0.01em;
   }
 
   .tagline {
+    margin-block-start: 8px;
     font-size: 8px;
     font-weight: 800;
     letter-spacing: 0.32em;
-    color: var(--silk-soft);
+    color: var(--ink-soft);
   }
 
   /* ---------- footswitch ---------- */
@@ -523,6 +459,7 @@
     display: grid;
     justify-items: center;
     gap: 12px;
+    margin-block-start: 16px;
   }
 
   .led {
@@ -532,22 +469,22 @@
     background: radial-gradient(circle at 40% 35%, #c9a85a, #5a4410 60%);
     box-shadow:
       0 0 0 3px #8b8d90,
-      0 0 0 4px rgb(0 0 0 / 0.4),
+      0 0 0 4px rgb(0 0 0 / 0.35),
       inset 0 -2px 3px rgb(0 0 0 / 0.5);
     transition: background 80ms, box-shadow 80ms;
 
     &.on {
-      background: radial-gradient(circle at 40% 35%, #fffbe8, var(--mustard) 45%, #b8860b);
+      background: radial-gradient(circle at 40% 35%, #fffbe8, var(--amber) 45%, #b8760b);
       box-shadow:
         0 0 0 3px #8b8d90,
-        0 0 0 4px rgb(0 0 0 / 0.4),
-        0 0 14px 4px rgb(242 194 48 / 0.55),
-        0 0 30px 8px rgb(242 194 48 / 0.22);
+        0 0 0 4px rgb(0 0 0 / 0.35),
+        0 0 14px 4px rgb(242 178 48 / 0.55),
+        0 0 30px 8px rgb(242 178 48 / 0.22);
     }
   }
 
   .stomp-wrap {
-    filter: drop-shadow(0 6px 5px rgb(0 0 0 / 0.5));
+    filter: drop-shadow(0 6px 5px rgb(0 0 0 / 0.45));
   }
 
   .stomp {
@@ -592,14 +529,14 @@
     font-size: 7px;
     font-weight: 800;
     letter-spacing: 0.3em;
-    color: var(--silk-soft);
+    color: var(--ink-soft);
   }
 </style>
 <style>
-  /* Chango and Jost (SIL OFL 1.1, ui/fonts). Chango is subset to capitals. */
+  /* Rammetto One and Jost (SIL OFL 1.1, ui/fonts). Rammetto One is subset to the wordmark. */
   @font-face {
-    font-family: "Chango";
-    src: url(data:font/woff2;base64,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) format("woff2");
+    font-family: "Rammetto One";
+    src: url(data:font/woff2;base64,d09GMgABAAAAAAUsAA4AAAAACWwAAATYAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGhwbgVQccgZgAFwRCAqFWIRTCxoAATYCJAMwBCAFhRgHIBvaB8jEJ/Csf0FT6IisxUK7mwOAdHtzvQ8yV2OrotNFo10qhEZrsCy64MkkiVlJNCJDKCSTF03xQ/wQP+T4Js/uu32ID3FpQY0gACgwd5CTEAF6FmIgnYH6sQzOCASZnJpdDFV3g7EXAdCW1h6jpqtF3wvJw3xS0yAhCdVCBmp2tzUZvqAgwt5QmIqgcIkrJgHFiUlx08lBNUleNCS8agqBcMc4IuoEvrKk8DcohCXCpXWd8BMogVdxZxUPQSq8yI4sG5XC8O8CooTKFBaOSYXFLByzEipZOBYnvETFhVm2zFozbsJqt6ape403koiHSa6lQTN+xIqMq0RB9FPXptE6+RStZPbtM8Bt82R+PsjNy03BDbAwSef+Szo90rXU/wBWq1O0nSklI4iSiEA0QgaAiEY6qcQ6z4BFAlrQgW6Ykgyf/GaO8a7wtXBD2CZsFjYLa0S37k3ICALUI6whjjEzoPw1gPAP36r0kgdwj+X10wCCppXUSLWDXEXT9KhRQziuf6BNzank3GmbfLE1oH9IqaK4SllZN9Nu+0S+2JpBqfsVpTwvWzQ4ONiz2Gbzoi7JFvE8jxnWnl83YXXcihn8h7JF91xnvLTKx8+XVfAf1paVzVxPzJTxPM8t1kIQ/cRMm61fJVWrT69xak5OaUglqSBnWOWIpIYQySwzrFRDiNUSRWmgDYODhFjNcaDFP8BMm00xv6PhBCBZ23ACwqbxENWNh0PA3m/v9UcnRmlDvghJ+dkrduuJkK2tb5M2HEeG79Wpw/hTdMn8tEXDfjmVCma1YdmzGu5f0zwdn3dwY5P9mVtcj09ZzL3mEV5hPYlVvaEz4/y8K/DCuf+zrIvret5bfX7WsA/Oja/aeOtnk+5im2bp82FzHw7/sD7ufKXS12PNuKNpOYkxoaaW9sr3Lr31H7aBGceUF6aKworVCzB+/vhl86YXxWb3rc7t2jRlSl58xsCagtFh45PsSZieaE/EqTAwq8NAO9v1+SXRS8fHjI9c0D975/8lEfZU/bQXHVPvL5bocW/9DO9l6eEe0c7pkZJCe/qyW4W6cdPXT33ZPuXu4vxSjF77bVV/bjSXmp2xYnWNtq4vK4JLzcpbtbYOpCtEAMSQw40MIquII2YRPSWZXDFOjt0k31z7fp06+jeJug3VAR8vz9x0O7+i4+b/L/8llS3StUBTgn2UABrCL6k0/7/8h1G2SIDvK8SH8UCSDwfmb2SKPkImFYJO8gpiFlcpL3B0MxKZ5dA1PLdX91eshwitzXdij40pLEHrw09LZ7I/iUhGYAzhyEioiBGMQjTeMBruOMFEKEY1Y+CKUIcKXwHaYYQRWhgQCT/4QYNsC3rRiv5eGNGNDjT9fMWAFvhCAz3aUIgG9KDHAZ9ZDfLQOwr5oJCOtcGEbjRAj9JZXg8DOsJ5iUUAfBEAf/gjCqyvfCsaYPIdaUcHV56FO8yu/nY4fBEMX4TBByFoRgga4cHqZmf62Cme3chFHnKRgqgkz/xYgI2SZKrvhx4daJMwxCKQhgMQABbFaE/QTJ/V+dBDg06iJveUkHlqF5UM65nlEWlDh7HbhEb4ogkaAoVDg1AbuqfWklpugB+bO1Xd7AFvsLCEg1JBeVbrYUYLmkdWV0ZQrv+5SYfh1DzeJLSiFXsAAA==) format("woff2");
   }
   @font-face {
     font-family: "Jost";
@@ -614,9 +551,9 @@
   <div class="jacks" aria-hidden="true"><span>◂ OUT</span><span>IN ◂</span></div>
 
   <div class="knobs">
-    <div class="control" data-knob="shade" style="--size: 52px"></div>
-    <div class="control" data-knob="wake" style="--size: 52px"></div>
-    <div class="control" data-knob="sway" style="--size: 52px"></div>
+    <div class="control" data-knob="tone" style="--size: 52px"></div>
+    <div class="control" data-knob="attack" style="--size: 52px"></div>
+    <div class="control" data-knob="detune" style="--size: 52px"></div>
   </div>
 
   <div class="presets" role="group" aria-label="Preset">
@@ -626,32 +563,29 @@
   </div>
 
   <div class="bay">
-    <div class="fader" data-floor="mole" data-interval="−2 OCT">
-      <svg data-face><g class="open"><circle class="carve-fill" cx="15" cy="13" r="1.8"/><circle class="carve-fill" cx="29" cy="13" r="1.8"/></g><g class="shut"><path class="carve" d="M12 13 H18 M26 13 H32"/></g><circle class="carve" cx="22" cy="19" r="3.6"/><ellipse class="mouth carve-fill" cx="22" cy="27.5" rx="5" ry="2.6"/><path class="carve" d="M5 24 l3 4 M7 22 l3 4 M39 24 l-3 4 M37 22 l-3 4"/></svg>
-    </div>
-    <div class="fader" data-floor="bear" data-interval="−1 OCT">
-      <svg data-face><path class="carve" d="M6 9 a4 4 0 1 1 6 -4 M38 9 a4 4 0 1 0 -6 -4"/><g class="open"><circle class="carve-fill" cx="14" cy="13" r="2"/><circle class="carve-fill" cx="30" cy="13" r="2"/></g><g class="shut"><path class="carve" d="M11 13 q3 2 6 0 M27 13 q3 2 6 0"/></g><ellipse class="carve" cx="22" cy="22" rx="9" ry="7"/><path class="carve-fill" d="M19 18 h6 l-3 3 z"/><ellipse class="mouth carve-fill" cx="22" cy="25.5" rx="4.5" ry="2.6"/></svg>
-    </div>
-    <div class="fader" data-floor="you" data-interval="DRY">
-      <svg data-face><path class="carve" d="M8 7 Q22 3 36 7"/><g class="open"><rect class="carve" x="9" y="11" width="9" height="5" rx="1.5"/><rect class="carve" x="26" y="11" width="9" height="5" rx="1.5"/></g><g class="shut"><path class="carve" d="M9 14 H18 M26 14 H35"/></g><path class="carve" d="M22 15 l-2.5 6 h4"/><rect class="mouth carve-fill" x="11" y="24" width="22" height="6" rx="3"/></svg>
-    </div>
-    <div class="fader" data-floor="fox" data-interval="+1 OCT">
-      <svg data-face><path class="carve" d="M6 10 L9 2 L15 7 M38 10 L35 2 L29 7"/><g class="open"><path class="carve-fill" d="M10 13 q4 -3 8 0 q-4 2 -8 0 z M26 13 q4 -3 8 0 q-4 2 -8 0 z"/></g><g class="shut"><path class="carve" d="M10 13 q4 2 8 0 M26 13 q4 2 8 0"/></g><path class="carve" d="M13 18 Q22 30 31 18"/><circle class="carve-fill" cx="22" cy="19" r="2"/><ellipse class="mouth carve-fill" cx="22" cy="26" rx="4" ry="2.4"/></svg>
-    </div>
-    <div class="fader" data-floor="owl" data-interval="+2 OCT">
-      <svg data-face><path class="carve" d="M6 7 L8 1 L13 5 M38 7 L36 1 L31 5"/><g class="open"><circle class="carve" cx="14" cy="13" r="5"/><circle class="carve" cx="30" cy="13" r="5"/><circle class="carve-fill" cx="14" cy="13" r="1.8"/><circle class="carve-fill" cx="30" cy="13" r="1.8"/></g><g class="shut"><path class="carve" d="M9 14 q5 3 10 0 M25 14 q5 3 10 0"/></g><path class="carve" d="M20 17 h4 l-2 4 z"/><ellipse class="mouth carve-fill" cx="22" cy="27" rx="4" ry="2.6"/></svg>
-    </div>
+    <div class="fader" data-floor="cave" data-interval="−2 OCT"></div>
+    <div class="fader" data-floor="valley" data-interval="−1 OCT"></div>
+    <div class="fader" data-floor="you" data-interval="DRY"></div>
+    <div class="fader" data-floor="ridge" data-interval="+1 OCT"></div>
+    <div class="fader" data-floor="peak" data-interval="+2 OCT"></div>
   </div>
 
-  <div class="brand" aria-hidden="true">
-    <div class="badge"><i></i><span>ALTITUDE</span><i></i></div>
-    <span class="tagline">FIVE-FLOOR OCTAVE STACK</span>
+  <div class="brand print" aria-hidden="true">
+    <svg class="range" viewBox="0 0 300 56">
+      <circle cx="232" cy="14" r="7"/>
+      <path class="ridge" d="M8 52 L58 30 L78 38 L118 10 L146 28 L166 20 L206 44 L232 34 L292 52"/>
+      <path class="contour" d="M40 52 L60 42 L76 48 L118 22 L142 38 L166 31 L196 50"/>
+      <path class="contour" d="M92 52 L118 34 L138 46 L166 41 L184 52"/>
+      <path class="contour" d="M210 52 L232 44 L258 52"/>
+    </svg>
+    <span class="wordmark">Altitude</span>
+    <span class="tagline">CAVE TO PEAK · OCTAVE STACK</span>
   </div>
 
   <div class="stomp-zone">
     <span class="led on" id="led"></span>
     <div class="stomp-wrap"><button class="stomp" id="stomp" aria-label="Stomp" aria-pressed="true"></button></div>
-    <span class="fine" aria-hidden="true">MOLE TO OWL · FOUR OCTAVES TALL</span>
+    <span class="fine print" aria-hidden="true">FOUR OCTAVES OF ELEVATION</span>
   </div>
 </main>
 
@@ -665,17 +599,17 @@
   // Plain values, in the units the controls show. Applying one turns
   // every floor on and leaves Stomp alone.
   const PRESETS = [
-    { name: "Bass under guitar", owl: 0, fox: 0, you: 100, bear: 60, mole: 0, shade: 40, wake: 0, sway: 0 },
-    { name: "Organ", owl: 25, fox: 50, you: 70, bear: 60, mole: 30, shade: 55, wake: 0, sway: 0 },
-    { name: "12-string", owl: 0, fox: 45, you: 100, bear: 0, mole: 0, shade: 80, wake: 0, sway: 8 },
-    { name: "Synth bass", owl: 0, fox: 0, you: 0, bear: 100, mole: 50, shade: 25, wake: 0, sway: 0 },
-    { name: "Doom sub", owl: 0, fox: 0, you: 100, bear: 70, mole: 70, shade: 30, wake: 0, sway: 0 },
-    { name: "Swell pad", owl: 30, fox: 60, you: 40, bear: 50, mole: 0, shade: 50, wake: 450, sway: 7 },
-    { name: "Shimmer", owl: 40, fox: 50, you: 100, bear: 0, mole: 0, shade: 85, wake: 250, sway: 5 },
-    { name: "Chiptune octaves", owl: 40, fox: 70, you: 80, bear: 0, mole: 0, shade: 100, wake: 0, sway: 0 },
+    { name: "Bass under guitar", peak: 0, ridge: 0, you: 100, valley: 60, cave: 0, tone: 40, attack: 0, detune: 0 },
+    { name: "Organ", peak: 25, ridge: 50, you: 70, valley: 60, cave: 30, tone: 55, attack: 0, detune: 0 },
+    { name: "12-string", peak: 0, ridge: 45, you: 100, valley: 0, cave: 0, tone: 80, attack: 0, detune: 8 },
+    { name: "Synth bass", peak: 0, ridge: 0, you: 0, valley: 100, cave: 50, tone: 25, attack: 0, detune: 0 },
+    { name: "Doom sub", peak: 0, ridge: 0, you: 100, valley: 70, cave: 70, tone: 30, attack: 0, detune: 0 },
+    { name: "Swell pad", peak: 30, ridge: 60, you: 40, valley: 50, cave: 0, tone: 50, attack: 450, detune: 7 },
+    { name: "Shimmer", peak: 40, ridge: 50, you: 100, valley: 0, cave: 0, tone: 85, attack: 250, detune: 5 },
+    { name: "Chiptune octaves", peak: 40, ridge: 70, you: 80, valley: 0, cave: 0, tone: 100, attack: 0, detune: 0 },
   ];
-  const FULL_SCALE = { owl: 100, fox: 100, you: 100, bear: 100, mole: 100, shade: 100, wake: 1000, sway: 25 };
-  const FLOORS = ["owl", "fox", "you", "bear", "mole"];
+  const FULL_SCALE = { peak: 100, ridge: 100, you: 100, valley: 100, cave: 100, tone: 100, attack: 1000, detune: 25 };
+  const FLOORS = ["peak", "ridge", "you", "valley", "cave"];
 
   const bridge = window.ipc
     ? (msg) => window.ipc.postMessage(JSON.stringify(msg))
@@ -834,11 +768,6 @@
     slot.className = "slot";
     const cap = document.createElement("div");
     cap.className = "cap";
-    const face = host.querySelector("[data-face]");
-    face.removeAttribute("data-face");
-    face.setAttribute("viewBox", "0 0 44 36");
-    face.setAttribute("aria-hidden", "true");
-    cap.append(face);
     slot.append(cap);
     const names = document.createElement("div");
     names.className = "names";
@@ -933,19 +862,19 @@
     const percent = (n) => `${Math.round(n * 100)}%`;
     const onOff = (n) => (n >= 0.5 ? "On" : "Off");
     const specs = [
-      { id: "mole", name: "Mole", steps: 0, default: 0, text: percent },
-      { id: "bear", name: "Bear", steps: 0, default: 0.5, text: percent },
+      { id: "cave", name: "Cave", steps: 0, default: 0, text: percent },
+      { id: "valley", name: "Valley", steps: 0, default: 0.5, text: percent },
       { id: "you", name: "You", steps: 0, default: 1, text: percent },
-      { id: "fox", name: "Fox", steps: 0, default: 0, text: percent },
-      { id: "owl", name: "Owl", steps: 0, default: 0, text: percent },
-      { id: "shade", name: "Shade", steps: 0, default: 0.6, text: percent },
-      { id: "wake", name: "Wake", steps: 0, default: 0, text: (n) => `${Math.round(n * 1000)} ms` },
-      { id: "sway", name: "Sway", steps: 0, default: 0, text: (n) => `${(n * 25).toFixed(1)} cents` },
-      { id: "mole_on", name: "Mole on", steps: 1, default: 1, text: onOff },
-      { id: "bear_on", name: "Bear on", steps: 1, default: 1, text: onOff },
+      { id: "ridge", name: "Ridge", steps: 0, default: 0, text: percent },
+      { id: "peak", name: "Peak", steps: 0, default: 0, text: percent },
+      { id: "tone", name: "Tone", steps: 0, default: 0.6, text: percent },
+      { id: "attack", name: "Attack", steps: 0, default: 0, text: (n) => `${Math.round(n * 1000)} ms` },
+      { id: "detune", name: "Detune", steps: 0, default: 0, text: (n) => `${(n * 25).toFixed(1)} cents` },
+      { id: "cave_on", name: "Cave on", steps: 1, default: 1, text: onOff },
+      { id: "valley_on", name: "Valley on", steps: 1, default: 1, text: onOff },
       { id: "you_on", name: "You on", steps: 1, default: 1, text: onOff },
-      { id: "fox_on", name: "Fox on", steps: 1, default: 1, text: onOff },
-      { id: "owl_on", name: "Owl on", steps: 1, default: 1, text: onOff },
+      { id: "ridge_on", name: "Ridge on", steps: 1, default: 1, text: onOff },
+      { id: "peak_on", name: "Peak on", steps: 1, default: 1, text: onOff },
       { id: "stomp", name: "Stomp", steps: 1, default: 1, text: onOff },
     ];
     const values = Object.fromEntries(specs.map((s) => [s.id, s.default]));

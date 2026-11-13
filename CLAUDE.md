@@ -66,24 +66,21 @@ say in the commit what changed in the sound.
 Settled with the user; keep to it. The editor is a real stompbox, built
 the way Halfwit's is (powder coat with noise, chrome screws, knurled
 knobs with tick dots, chrome hex footswitch and LED). Look at Halfwit's
-page before changing materials.
+page before changing materials. No wood.
 
-- Enclosure: tomato-red powder coat, cream silkscreen in Jost.
-- Knobs: ivory knurled, ink pointer. Shade (tone), Wake (attack), Sway
-  (detune) across the top.
+- Enclosure: powder blue, with everything printed on it in navy ink as
+  if screen-printed (`.print` multiplies into the coat). No tags,
+  badges or plates.
+- Knobs: ivory knurled, navy pointer: Tone, Attack, Detune.
 - Presets: an amber backlit window between chrome ◀ ▶ buttons.
-- Floors: five slide faders in a recessed black bay, low to high: Mole
-  (−2), Bear (−1), You (dry), Fox (+1), Owl (+2). Each has a mint switch
-  light above it. The fader caps are carved cedar with that critter's
-  face, which carries the totem theme. Original characters only, not
-  Northwest Coast formline art.
-- Art: a cap's carved mouth opens with its level (`--open` on
-  `.fader`); off closes its eyes. Stomp off dims every floor light but
-  You's and closes the octave critters' eyes.
-- Badge: a carved cedar plate with two brass screws, the wordmark in
-  Chango at letter-spacing −0.03em. Chango in `ui/fonts` is subset to
-  capitals; Jost is the full latin subset.
-- Colours by function: mint for floor switches, amber for the effect
+- Floors: five slide faders printed straight onto the coat, low to
+  high: Cave (−2), Valley (−1), You (dry), Ridge (+1), Peak (+2). Ivory
+  caps with a navy index line, and a green switch light above each.
+  Stomp off dims every light but You's.
+- Wordmark: Rammetto One in navy under a printed mountain range with
+  contour lines. The font in `ui/fonts` is subset to the letters of
+  "Altitude"; labels are Jost.
+- Colours by function: green for floor switches, amber for the effect
   (footswitch LED and preset window).
 
 ## UI

@@ -1,6 +1,6 @@
 # Altitude
 
-<img src="docs/altitude.png" width="305" alt="Altitude, a powder-blue stompbox printed in navy, with ivory Tone, Attack and Detune knobs, an amber preset window between chrome arrow buttons, five slide faders with ivory caps (Cave, Valley, You, Ridge, Peak) under green switch lights, a printed mountain range over the Altitude wordmark, and a chrome footswitch under an amber LED">
+<img src="docs/altitude.png" width="307" alt="Altitude, a powder-blue stompbox printed in navy, with ivory Tone, Attack and Detune knobs, an amber preset window between chrome arrow buttons, five slide faders with ivory caps (Cave, Valley, You, Ridge, Peak) under green switch lights, a printed mountain range over the Altitude wordmark, and a chrome footswitch under an amber LED">
 
 Stacked octaves for guitar, bass, synths or anything else, as a VST3 and
 CLAP plugin for macOS and Windows. Five floors mix two octaves down, one

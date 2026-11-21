@@ -1,6 +1,6 @@
 # Altitude
 
-<img src="docs/altitude.jpg" width="305" alt="Altitude, a powder-blue stompbox printed in navy, with ivory Tone, Attack and Detune knobs, an amber preset window between chrome arrow buttons, five slide faders with ivory caps (Cave, Valley, You, Ridge, Peak) under green switch lights, a printed mountain range over the Altitude wordmark, and a chrome footswitch under an amber LED">
+<img src="docs/altitude.png" width="305" alt="Altitude, a powder-blue stompbox printed in navy, with ivory Tone, Attack and Detune knobs, an amber preset window between chrome arrow buttons, five slide faders with ivory caps (Cave, Valley, You, Ridge, Peak) under green switch lights, a printed mountain range over the Altitude wordmark, and a chrome footswitch under an amber LED">
 
 Stacked octaves for guitar, bass, synths or anything else, as a VST3 and
 CLAP plugin for macOS and Windows. Five floors mix two octaves down, one
@@ -126,7 +126,7 @@ before starting the host.
   Windows bundle, validates both, and publishes `Altitude-X.Y.Z.zip`
   with `INSTALL.txt`.
 - `screenshot.yml` runs on pushes to main that touch `ui/`, the version
-  or `plugin/src/lib.rs`. It retakes `docs/altitude.jpg` with
+  or `plugin/src/lib.rs`. It retakes `docs/altitude.png` with
   `scripts/screenshot.sh`, sets its width in the README, and commits both
   if the image changed.
 

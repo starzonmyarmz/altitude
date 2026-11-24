@@ -1,10 +1,12 @@
 # Altitude
 
+Stacked octaves, from cave to peak: a VST3 and CLAP plugin
+
 <img src="docs/altitude.png" width="308" alt="Altitude, a powder-blue stompbox printed in navy, with ivory Tone, Attack and Detune knobs, an amber preset window between chrome arrow buttons, five slide faders with ivory caps (Cave, Valley, You, Ridge, Peak) under green switch lights, a printed mountain range over the Altitude wordmark, and a chrome footswitch under an amber LED">
 
-Stacked octaves for guitar, bass, synths or anything else, as a VST3 and
-CLAP plugin for macOS and Windows. Five floors mix two octaves down, one
-down, your dry signal, one up and two up. It handles chords as well as
+For guitar, bass, synths or anything else, on macOS and Windows. Five
+floors mix two octaves down, one down, your dry signal, one up and two
+up. It handles chords as well as
 single notes, so it does organ stacks as well as bass lines.
 
 ## How it works
@@ -90,8 +92,8 @@ Download the zip from
 
 ```sh
 cargo xtask bundle altitude --release         # target/bundled/Altitude.{vst3,clap}
-scripts/bump.sh [patch|minor|major]        # bump the version (patch by default)
-scripts/install.sh                         # bundle, sign ad hoc and install on macOS
+scripts/install.sh                         # bundle, sign ad hoc and install on macOS as X.Y.Z-dev+<sha>
+scripts/release --dry-run                  # what the next release would be
 scripts/clap-validator.sh target/bundled/Altitude.clap
 ```
 
@@ -119,12 +121,17 @@ before starting the host.
 
 ## CI and releases
 
-- `check.yml` runs on pushes to main and on PRs: the tests and
-  clap-validator on macOS, and clap-validator on the Windows build.
-- `release.yml` runs on `vX.Y.Z` tags. The tag must match `version` in
-  the root `Cargo.toml`. It builds a universal macOS bundle and a
-  Windows bundle, validates both, and publishes `Altitude-X.Y.Z.zip`
-  with `INSTALL.txt`.
+- `check.yml` runs on pushes to main and on PRs: rustfmt and clippy, the
+  tests and clap-validator on macOS, and clap-validator on the Windows
+  build. `changelog.yml` checks that a PR with `feat`, `fix` or `perf`
+  commits adds lines to `CHANGELOG.md`.
+- `scripts/release` releases: it works out the version from the commits
+  since the last release (breaking → major, minor before 1.0; `feat` →
+  minor; `fix`, `perf`, `revert` → patch), finalizes `CHANGELOG.md`,
+  commits, tags `vX.Y.Z` and pushes. Add `--dry-run` to only look.
+- `release.yml` runs on that tag. It builds a universal macOS bundle and a
+  Windows bundle, validates both, and publishes `altitude-X.Y.Z.zip` with
+  `INSTALL.txt` and `SHA256SUMS`, with the changelog section as the notes.
 - `screenshot.yml` runs on pushes to main that touch `ui/`, the version
   or `plugin/src/lib.rs`. It retakes `docs/altitude.png` with
   `scripts/screenshot.sh`, sets its width in the README, and commits both
@@ -138,5 +145,3 @@ before starting the host.
 - [Rammetto One](https://fonts.google.com/specimen/Rammetto+One) by Rammetto Project Authors and
   [Jost](https://github.com/indestructible-type/Jost) by Owen Earl,
   under the SIL Open Font License (`ui/fonts`).
-- Started from
-  [plugin-template](https://github.com/starzonmyarmz/plugin-template).

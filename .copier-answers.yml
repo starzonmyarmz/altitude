@@ -1,0 +1,18 @@
+_commit: b602e5b
+_src_path: /Users/marino/Code/project-kit
+app_id: com.iamdanielmarino.altitude
+author: Daniel Marino
+description: 'Stacked octaves, from cave to peak: a VST3 and CLAP plugin'
+design_doc: true
+display_name: Altitude
+name: altitude
+oss_community: false
+owner: starzonmyarmz
+public: true
+ships:
+- github-release
+stack: vst-plugin
+starter: false
+voice_doc: false
+vst3_class_id: AltitudeDanielMa
+year: 2026

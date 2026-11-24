@@ -1,5 +1,5 @@
 Installing Altitude
-==================
+===================
 
 Altitude comes as a VST3 and a CLAP plugin. Copy both from the folder for
 your computer, then rescan plugins in your DAW. Use the CLAP version if

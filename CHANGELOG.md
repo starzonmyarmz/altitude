@@ -7,6 +7,9 @@ What changed for people using Altitude, newest first. Code-only work stays in th
 ### Added
 - The version is printed on the pedal, so you can tell which build your host loaded.
 
+### Changed
+- Altitude has new plugin IDs and lists its maker as Daniel Marino. Hosts see this version as a new plugin, so projects saved with 0.2.0 need Altitude added again.
+
 ## [0.2.0] - 2026-11-12
 
 ### Added

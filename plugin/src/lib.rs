@@ -33,7 +33,7 @@ impl Default for Altitude {
 
 impl Plugin for Altitude {
     const NAME: &'static str = "Altitude";
-    const VENDOR: &'static str = "Dan Marino";
+    const VENDOR: &'static str = "Daniel Marino";
     const URL: &'static str = "";
     const EMAIL: &'static str = "";
     const VERSION: &'static str = env!("CARGO_PKG_VERSION");
@@ -88,7 +88,7 @@ impl Plugin for Altitude {
 }
 
 impl ClapPlugin for Altitude {
-    const CLAP_ID: &'static str = "com.danmarino.altitude";
+    const CLAP_ID: &'static str = "com.iamdanielmarino.altitude";
     const CLAP_DESCRIPTION: Option<&'static str> = Some("Stacked octaves, two down to two up");
     const CLAP_MANUAL_URL: Option<&'static str> = None;
     const CLAP_SUPPORT_URL: Option<&'static str> = None;
@@ -97,7 +97,7 @@ impl ClapPlugin for Altitude {
 }
 
 impl Vst3Plugin for Altitude {
-    const VST3_CLASS_ID: [u8; 16] = *b"AltitudeDanMarin";
+    const VST3_CLASS_ID: [u8; 16] = *b"AltitudeDanielMa";
     const VST3_SUBCATEGORIES: &'static [Vst3SubCategory] = &[Vst3SubCategory::Fx, Vst3SubCategory::PitchShift];
 }
 

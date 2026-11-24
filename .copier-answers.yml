@@ -8,6 +8,7 @@ display_name: Altitude
 name: altitude
 oss_community: false
 owner: starzonmyarmz
+port_jsfx: false
 public: true
 ships:
 - github-release

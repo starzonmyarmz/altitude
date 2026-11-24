@@ -67,7 +67,15 @@ impl Controls {
         if self.stomp {
             return self.settings;
         }
-        Settings { dry: 100.0, dry_on: true, down2_on: false, down1_on: false, up1_on: false, up2_on: false, ..self.settings }
+        Settings {
+            dry: 100.0,
+            dry_on: true,
+            down2_on: false,
+            down1_on: false,
+            up1_on: false,
+            up2_on: false,
+            ..self.settings
+        }
     }
 }
 

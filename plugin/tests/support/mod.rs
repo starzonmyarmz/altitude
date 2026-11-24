@@ -70,7 +70,8 @@ pub fn tone(freq: f64, seconds: f64, sample_rate: f32) -> Vec<f32> {
     (0..(seconds * sr) as usize)
         .map(|i| {
             let t = i as f64 / sr;
-            let x = (2.0 * PI * freq * t).sin() + 0.5 * (4.0 * PI * freq * t).sin() + 0.25 * (6.0 * PI * freq * t).sin();
+            let x =
+                (2.0 * PI * freq * t).sin() + 0.5 * (4.0 * PI * freq * t).sin() + 0.25 * (6.0 * PI * freq * t).sin();
             (0.3 * x) as f32
         })
         .collect()

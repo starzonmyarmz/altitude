@@ -4,8 +4,8 @@ pub mod engine;
 mod params;
 
 use engine::Engine;
-use params::AltitudeParams;
 use nice_plug::prelude::*;
+use params::AltitudeParams;
 use std::sync::Arc;
 
 static PAGE: editor::Page = editor::Page {
@@ -92,7 +92,8 @@ impl ClapPlugin for Altitude {
     const CLAP_DESCRIPTION: Option<&'static str> = Some("Stacked octaves, two down to two up");
     const CLAP_MANUAL_URL: Option<&'static str> = None;
     const CLAP_SUPPORT_URL: Option<&'static str> = None;
-    const CLAP_FEATURES: &'static [ClapFeature] = &[ClapFeature::AudioEffect, ClapFeature::PitchShifter, ClapFeature::Stereo];
+    const CLAP_FEATURES: &'static [ClapFeature] =
+        &[ClapFeature::AudioEffect, ClapFeature::PitchShifter, ClapFeature::Stereo];
 }
 
 impl Vst3Plugin for Altitude {

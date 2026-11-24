@@ -4,6 +4,8 @@ What changed for people using Altitude, newest first. Code-only work stays in th
 
 ## [Unreleased]
 
+## [0.3.0] - 2026-11-23
+
 ### Added
 - The version is printed on the pedal, so you can tell which build your host loaded.
 

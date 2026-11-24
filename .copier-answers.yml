@@ -1,5 +1,5 @@
 _commit: f903bed
-_src_path: /Users/marino/Code/project-kit
+_src_path: gh:starzonmyarmz/project-kit
 app_id: com.iamdanielmarino.altitude
 author: Daniel Marino
 description: 'Stacked octaves, from cave to peak: a VST3 and CLAP plugin'

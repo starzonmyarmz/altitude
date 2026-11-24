@@ -18,7 +18,7 @@ macOS (Apple Silicon and Intel)
 Altitude isn’t signed or notarized, so macOS may refuse to load it. If your
 DAW doesn’t list it after a rescan, open Terminal, run this, then rescan:
 
-   xattr -dr com.apple.quarantine ~/Library/Audio/Plug-Ins/VST3/Altitude.vst3 ~/Library/Audio/Plug-Ins/CLAP/Altitude.clap
+   xattr -dr com.apple.quarantine ~/Library/Audio/Plug-Ins/VST3/"Altitude.vst3" ~/Library/Audio/Plug-Ins/CLAP/"Altitude.clap"
 
 
 Windows
